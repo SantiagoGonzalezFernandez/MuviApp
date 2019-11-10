@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.views.model;
+package com.muviteam.muviapp.model;
 
 import java.util.List;
 

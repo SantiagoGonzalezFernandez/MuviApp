@@ -3,7 +3,7 @@
     <string name="titulo_main_activity">MUVI</string>
     <string name="top_rating_movies_es">Mejor Puntuadas</string>
     <string name="upcoming_movies_es">Coming Soon</string>
-    <string name="popular_movies_es">Mas Populares</string>
+    <string name="popular_movies_es">Populares</string>
 
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
@@ -15,4 +15,5 @@
     <string name="nombrepelicula">Nombre Pelicula</string>
     <string name="nombre_director">Nombre Director</string>
     <string name="nombre_famoso">Nombre Famoso</string>
+    <string name="cumple_hoy">Cumpleanos</string>
 </resources>

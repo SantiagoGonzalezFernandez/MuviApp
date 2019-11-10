@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.views.utils;
+package com.muviteam.muviapp.utils;
 
 public interface ResultListener<T> {
 

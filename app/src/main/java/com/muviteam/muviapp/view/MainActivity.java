@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.views.view;
+package com.muviteam.muviapp.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;

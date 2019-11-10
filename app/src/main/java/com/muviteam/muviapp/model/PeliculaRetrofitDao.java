@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.views.model;
+package com.muviteam.muviapp.model;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

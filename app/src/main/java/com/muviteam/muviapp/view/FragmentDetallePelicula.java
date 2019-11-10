@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.views.view;
+package com.muviteam.muviapp.view;
 
 
 import android.os.Bundle;
@@ -14,15 +14,14 @@ import com.muviteam.muviapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentViewPager extends Fragment {
-
+public class FragmentDetallePelicula extends Fragment {
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_view_pager, container, false);
+        return inflater.inflate(R.layout.fragment_detalle_pelicula, container, false);
     }
 
 }
