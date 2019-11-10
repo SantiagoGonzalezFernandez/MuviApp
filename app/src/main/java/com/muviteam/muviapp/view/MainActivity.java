@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -105,5 +106,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         myDrawerLayout.closeDrawers();
         return true;
+    }
+
+    private void pegarFragment(Fragment fragment){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.MainActivity_FrameLayout_ContenedorDeFragments,fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }
