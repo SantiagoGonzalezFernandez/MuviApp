@@ -19,9 +19,11 @@ public class AdapterViewPager extends FragmentPagerAdapter {
         super(fm);
         fragmentList.add(new FragmentHome());
         fragmentList.add(new FragmentHome());
+        fragmentList.add(new FragmentHome());
 
-        stringListTitles.add("");
-        stringListTitles.add("");
+        stringListTitles.add("Watchlist");
+        stringListTitles.add("Home");
+        stringListTitles.add("Generos");
     }
 
     @NonNull

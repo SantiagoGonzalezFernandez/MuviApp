@@ -45,9 +45,6 @@ public class ToolbarFragment extends Fragment {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_star_black_24dp);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_star_black_24dp);
-
         return view;
     }
 
