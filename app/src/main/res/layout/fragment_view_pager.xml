@@ -22,6 +22,14 @@
                 android:layout_height="220dp"
                 android:background="@color/colorSecundario" />
 
+            <ImageView
+                android:id="@+id/FragmentViewPager_ImageView_FondoPelicula"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@id/FragmentViewPager_ViewPager_Contenedor"
+                android:layout_alignParentTop="true">
+            </ImageView>
+
             <TextView
                 android:id="@+id/FragmentViewPager_TextView_NombrePelicula"
                 android:layout_width="270dp"
@@ -47,7 +55,7 @@
                 android:textSize="15sp" />
 
             <ImageView
-                android:id="@+id/FragmentViewPager_ImageView_ImagenPelicula"
+                android:id="@+id/FragmentViewPager_ImageView_PosterPelicula"
                 android:layout_width="115dp"
                 android:layout_height="160dp"
                 android:layout_alignBottom="@id/FragmentViewPager_TextView_Director"
