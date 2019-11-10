@@ -29,7 +29,7 @@ import java.util.List;
 public class ToolbarFragment extends Fragment {
 
     ViewPager viewPager;
-    AdapterViewPager adapter;
+    AdapterViewPagerToolBar adapter;
     TabLayout tabLayout;
 
     @Override
@@ -40,7 +40,7 @@ public class ToolbarFragment extends Fragment {
 
         encotrarVariablesId(view);
 
-        adapter = new AdapterViewPager(getActivity().getSupportFragmentManager());
+        adapter = new AdapterViewPagerToolBar(getActivity().getSupportFragmentManager());
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
