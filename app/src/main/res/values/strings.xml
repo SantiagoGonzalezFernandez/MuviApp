@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">MuviApp</string>
+    <string name="app_name">Muvi</string>
+    <string name="titulo_main_activity">MUVI</string>
+    <string name="top_rating_movies_es">Mejor Puntuadas</string>
+    <string name="upcoming_movies_es">Coming Soon</string>
+    <string name="popular_movies_es">Mas Populares</string>
+
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+
+    <string-array name="peliculas_array"></string-array> <!--Esta linea tiene que ser borrada o modificada en algun momento-->
 </resources>
