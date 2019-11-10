@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="130dp"
+    android:layout_height="290dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CeldaFamoso_CardView_Contenedor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/colorCelda"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="6dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/CeldaFamoso_ImageView_ImagenFamoso"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/CeldaPelicula_TextView_RatingPelicula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/CeldaFamoso_ImageView_ImagenFamoso"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:drawableStart="@drawable/ic_star_black_24dp"
+                android:gravity="center_vertical"
+                android:paddingTop="4dp"
+                android:textColor="@color/colorTexto"
+                tools:text="0.0" />
+
+            <TextView
+                android:id="@+id/CeldaFamoso_TextView_NombreFamoso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/CeldaPelicula_TextView_RatingPelicula"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/colorTexto"
+                android:textStyle="bold"
+                tools:text="@string/nombrepelicula" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
