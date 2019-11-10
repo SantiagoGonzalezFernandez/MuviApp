@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         encuentroVariablesPorId();
         creoElAppBar();
 
+        pegarFragment(new FragmentHome());
+
     }
 
     private void encuentroVariablesPorId(){
