@@ -66,7 +66,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerListaDeViewPager(final ResultListener<List<Pelicula>> listenerDelControler){
-        Call<ContainerPelicula> call = peliculasService.traerPelialViewPager(API_KEY);
+        Call<ContainerPelicula> call = peliculasService.traerPeliculaViewPager(API_KEY);
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override
             public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {
@@ -81,7 +81,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerPopulares(final ResultListener<List<Pelicula>> listenerDelControler){
-        Call<ContainerPelicula> call = peliculasService.traerPelisPopulares(API_KEY);
+        Call<ContainerPelicula> call = peliculasService.traerPeliculasPopulares(API_KEY);
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override
             public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {

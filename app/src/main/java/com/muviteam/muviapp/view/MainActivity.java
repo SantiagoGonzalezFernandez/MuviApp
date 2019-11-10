@@ -69,12 +69,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
 
-        MenuItem mSearch = menu.findItem(R.id.ToolBarMenu_Item_action_search);
+        MenuItem myMenuItemSearch = menu.findItem(R.id.ToolBarMenu_Item_action_search);
 
-        SearchView mSearchView = (SearchView) mSearch.getActionView();
-        mSearchView.setQueryHint("Search");
+        SearchView mySearchView = (SearchView) myMenuItemSearch.getActionView();
+        mySearchView.setQueryHint("Search");
 
-        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -93,9 +93,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         //menuitem es el elemento seleccionado
-        Integer id = menuItem.getItemId();
+        Integer integerId = menuItem.getItemId();
         //uso un switch para ponerle un comportamiento distinto a cada boton
-        switch (id) {
+        switch (integerId) {
             case R.id.MenuPrincipal_Item_Perfil:
                 Toast.makeText(this, "Entrado al perfil del usuario", Toast.LENGTH_SHORT).show();
                 break;

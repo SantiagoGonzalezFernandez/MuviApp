@@ -28,9 +28,9 @@ import java.util.List;
  */
 public class ToolbarFragment extends Fragment {
 
-    ViewPager viewPager;
-    AdapterViewPagerToolBar adapter;
-    TabLayout tabLayout;
+    ViewPager myViewPager;
+    AdapterViewPagerToolBar myAdapter;
+    TabLayout myTabLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,17 +40,17 @@ public class ToolbarFragment extends Fragment {
 
         encotrarVariablesId(view);
 
-        adapter = new AdapterViewPagerToolBar(getActivity().getSupportFragmentManager());
+        myAdapter = new AdapterViewPagerToolBar(getActivity().getSupportFragmentManager());
 
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
+        myViewPager.setAdapter(myAdapter);
+        myTabLayout.setupWithViewPager(myViewPager);
 
         return view;
     }
 
     private void encotrarVariablesId(View view){
-        viewPager = view.findViewById(R.id.FragmentToolbar_ViewPager_ContenedorDeFragments);
-        tabLayout = view.findViewById(R.id.FragmentToolbar_TabLayout);
+        myViewPager = view.findViewById(R.id.FragmentToolbar_ViewPager_ContenedorDeFragments);
+        myTabLayout = view.findViewById(R.id.FragmentToolbar_TabLayout);
     }
 
 

@@ -58,16 +58,19 @@ public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHo
     }
 
     public class ViewHolderPeliculas extends RecyclerView.ViewHolder {
-        private TextView textViewTitulo, textViewDirector, textViewPuntaje;
-        private ImageView imagenDePelicula;
-        private String puntaje, director;
+        private TextView textViewTitulo;
+        private TextView textViewDirector;
+        private TextView textViewPuntaje;
+        private ImageView imageViewImagenDePelicula;
+        private String puntaje;
+        private String director;
 
         public ViewHolderPeliculas(@NonNull View itemView) {
             super(itemView);
-            imagenDePelicula = itemView.findViewById(R.id.CeldaPelicula_ImageView_ImagenPelicula);
+            imageViewImagenDePelicula = itemView.findViewById(R.id.CeldaPelicula_ImageView_ImagenPelicula);
             textViewTitulo = itemView.findViewById(R.id.CeldaPelicula_TextView_NombrePelicula);
             textViewPuntaje = itemView.findViewById(R.id.CeldaPelicula_TextView_RatingPelicula);
-           // textViewDirector = itemView.findViewById(R.id.MovieCard_TextView_DirectorPelicula);
+            // textViewDirector = itemView.findViewById(R.id.MovieCard_TextView_DirectorPelicula);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -78,8 +81,8 @@ public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHo
         }
 
         public void cargarPelicula(Pelicula pelicula) {
-            Glide.with(imagenDePelicula.getContext()).load(pelicula.generaURLImagen()).placeholder(R.drawable.loading)
-                    .error(R.drawable.logomuvi).into(imagenDePelicula);
+            Glide.with(imageViewImagenDePelicula.getContext()).load(pelicula.generaURLImagen()).placeholder(R.drawable.loading)
+                    .error(R.drawable.logomuvi).into(imageViewImagenDePelicula);
             textViewTitulo.setText(pelicula.getTitulo());
             textViewDirector.setText("");
             puntaje = Double.toString(pelicula.getPopularity());

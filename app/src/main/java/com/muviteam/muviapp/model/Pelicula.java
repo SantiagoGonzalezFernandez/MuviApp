@@ -9,67 +9,67 @@ public class Pelicula implements Serializable {
     public static final String BASE_URL = "https://image.tmdb.org/t/p/original";
 
     @SerializedName("title")
-    private String titulo;
-    private Integer id;
-    private String director;
+    private String stringTitulo;
+    private Integer integerId;
+    private String stringDirector;
     @SerializedName("release_date")
-    private String fechaDeEstreno;
+    private String stringFechaDeEstreno;
     @SerializedName("poster_path")
-    private String imagenurl;
+    private String stringImagenurl;
     @SerializedName("backdrop_path")
-    private String imagenurlcelda;
+    private String stringImagenurlcelda;
     @SerializedName("overview")
-    private String sinopsis;
-    private Double popularity;
+    private String stringSinopsis;
+    private Double doublePopularity;
 
     public Double getPopularity() {
-        return popularity;
+        return doublePopularity;
     }
 
-    public Pelicula(String titulo, String imagenurl, String imagenurlcelda) {
-        this.titulo = titulo;
-        this.id = id;
-        this.director = director;
-        this.fechaDeEstreno = fechaDeEstreno;
-        this.imagenurl = imagenurl;
-        this.imagenurlcelda = imagenurlcelda;
-        this.sinopsis = sinopsis;
+    public Pelicula(String stringTitulo, String stringImagenurl, String stringImagenurlcelda) {
+        this.stringTitulo = stringTitulo;
+        this.integerId = integerId;
+        this.stringDirector = stringDirector;
+        this.stringFechaDeEstreno = stringFechaDeEstreno;
+        this.stringImagenurl = stringImagenurl;
+        this.stringImagenurlcelda = stringImagenurlcelda;
+        this.stringSinopsis = stringSinopsis;
     }
 
     public String getTitulo() {
-        return titulo;
+        return stringTitulo;
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        this.stringTitulo = titulo;
     }
 
     public String getDirector() {
-        return director;
+        return stringDirector;
     }
 
     public void setDirector(String director) {
-        this.director = director;
+        this.stringDirector = director;
     }
 
     public String getFechaDeEstreno() {
-        return fechaDeEstreno;
+        return stringFechaDeEstreno;
     }
 
     public void setFechaDeEstreno(String fechaDeEstreno) {
-        this.fechaDeEstreno = fechaDeEstreno;
+        this.stringFechaDeEstreno = fechaDeEstreno;
     }
 
     public String getImagenurl() {
-        return imagenurl;
+        return stringImagenurl;
     }
 
     public void setImagenurl(String imagenurl) {
-        this.imagenurl = imagenurl;
+        this.stringImagenurl = imagenurl;
     }
 
     public String getSinopsis() {
-        return sinopsis;
+        return stringSinopsis;
     }
 
     public void setSinopsis(String sinopsis) {
@@ -77,27 +77,27 @@ public class Pelicula implements Serializable {
     }
 
     public Integer getId() {
-        return id;
+        return integerId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.integerId = id;
     }
 
     public String generaURLImagen(){
-        return BASE_URL + imagenurl;
+        return BASE_URL + stringImagenurl;
     }
 
     public String generaURLImagencelda(){
-        return BASE_URL + imagenurlcelda;
+        return BASE_URL + stringImagenurlcelda;
     }
 
     public String getImagenurlcelda() {
-        return imagenurlcelda;
+        return stringImagenurlcelda;
     }
 
     public void setImagenurlcelda(String imagenurlcelda) {
-        this.imagenurlcelda = imagenurlcelda;
+        this.stringImagenurlcelda = imagenurlcelda;
     }
 
     @Override
@@ -105,7 +105,7 @@ public class Pelicula implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pelicula pelicula = (Pelicula) o;
-        return id.equals(pelicula.id);
+        return integerId.equals(pelicula.integerId);
     }
 
 }

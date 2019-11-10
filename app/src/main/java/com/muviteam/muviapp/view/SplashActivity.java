@@ -12,7 +12,7 @@ import com.muviteam.muviapp.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private VideoView videoViewVideoSplash;
+    private VideoView myVideoViewVideoSplash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +27,11 @@ public class SplashActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        videoViewVideoSplash = findViewById(R.id.SplashActivity_VideoView_VideoSplash);
+        myVideoViewVideoSplash = findViewById(R.id.SplashActivity_VideoView_VideoSplash);
         String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.muvi;
         Uri uri = Uri.parse(videoPath);
-        videoViewVideoSplash.setVideoURI(uri);
-        videoViewVideoSplash.requestFocus();
-        videoViewVideoSplash.start();
+        myVideoViewVideoSplash.setVideoURI(uri);
+        myVideoViewVideoSplash.requestFocus();
+        myVideoViewVideoSplash.start();
     }
 }

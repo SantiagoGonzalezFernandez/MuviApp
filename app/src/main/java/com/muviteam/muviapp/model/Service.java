@@ -20,8 +20,8 @@ public interface Service {
     Call<ContainerFamoso> traerPersona(@Query("api_key") String apiKey);
 
     @GET("movie/now_playing")
-    Call<ContainerPelicula> traerPelialViewPager(@Query("api_key") String apiKey);
+    Call<ContainerPelicula> traerPeliculaViewPager(@Query("api_key") String apiKey);
 
     @GET("movie/popular")
-    Call<ContainerPelicula> traerPelisPopulares(@Query("api_key") String apiKey);
+    Call<ContainerPelicula> traerPeliculasPopulares(@Query("api_key") String apiKey);
 }

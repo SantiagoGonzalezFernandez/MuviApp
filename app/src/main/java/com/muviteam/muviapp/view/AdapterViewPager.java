@@ -7,30 +7,30 @@ import java.util.List;
 
 public class AdapterViewPager extends FragmentPagerAdapter {
 
-    private List<Fragment> listaDeFragments;
+    private List<Fragment> fragmentList;
 
-    public List<Fragment> getListaDeFragments() {
-        return listaDeFragments;
+    public List<Fragment> getFragmentList() {
+        return fragmentList;
     }
 
     public AdapterViewPager(@NonNull FragmentManager fm, List<Fragment> fragmentAMostrar) {
         super(fm);
-        listaDeFragments = fragmentAMostrar;
+        fragmentList = fragmentAMostrar;
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return listaDeFragments.get(position);
+        return fragmentList.get(position);
     }
 
     @Override
     public int getCount() {
-        return listaDeFragments.size();
+        return fragmentList.size();
     }
 
-    public void actuslizarListaFragment(List<Fragment> listaDeFragments) {
-        this.listaDeFragments = listaDeFragments;
+    public void actualizarListFragment(List<Fragment> fragmentList) {
+        this.fragmentList = fragmentList;
         notifyDataSetChanged();
     }
 

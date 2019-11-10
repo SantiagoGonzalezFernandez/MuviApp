@@ -51,18 +51,18 @@ public class AdapterFamoso extends RecyclerView.Adapter<AdapterFamoso.ViewHolder
         return famosoList.size();}
 
     public class ViewHolderFamoso extends RecyclerView.ViewHolder{
-        private TextView nombre;
-        private ImageView imagenFamoso;
+        private TextView textViewNombre;
+        private ImageView imageViewImagenFamoso;
         public ViewHolderFamoso(@NonNull View itemView) {
             super(itemView);
-            imagenFamoso = itemView.findViewById(R.id.CeldaFamoso_ImageView_ImagenFamoso);
-            nombre = itemView.findViewById(R.id.CeldaFamoso_TextView_NombreFamoso);
+            imageViewImagenFamoso = itemView.findViewById(R.id.CeldaFamoso_ImageView_ImagenFamoso);
+            textViewNombre = itemView.findViewById(R.id.CeldaFamoso_TextView_NombreFamoso);
 
         }
         public void cargarFamoso(Famoso famoso){
-            Glide.with(imagenFamoso.getContext()).load(famoso.generaURLImagen()).placeholder(R.drawable.loading)
-                    .error(R.drawable.logomuvi).into(imagenFamoso);
-            nombre.setText(famoso.getNombre());
+            Glide.with(imageViewImagenFamoso.getContext()).load(famoso.generaURLImagen()).placeholder(R.drawable.loading)
+                    .error(R.drawable.logomuvi).into(imageViewImagenFamoso);
+            textViewNombre.setText(famoso.getNombre());
         }
     }
 
