@@ -5,7 +5,7 @@
     android:id="@+id/SplashActivity_RelativeLayout_ParentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.SplashActivity">
+    tools:context=".views.view.SplashActivity">
 
 
     <VideoView

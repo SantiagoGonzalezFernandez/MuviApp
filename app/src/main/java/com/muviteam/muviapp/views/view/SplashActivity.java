@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.views;
+package com.muviteam.muviapp.views.view;
 
 import android.content.Intent;
 import android.net.Uri;
