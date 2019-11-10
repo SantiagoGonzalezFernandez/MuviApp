@@ -28,9 +28,6 @@ import java.util.List;
  */
 public class ToolbarFragment extends Fragment {
 
-    private final List<Fragment> fragmentList = new ArrayList<>();
-    private final List<String> stringListTitles = new ArrayList<>();
-
     ViewPager viewPager;
     AdapterViewPager adapter;
     TabLayout tabLayout;
