@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/CeldaFamoso_ImageView_ImagenFamoso"
+                android:id="@+id/CeldaPelicula_ImageView_ImagenPelicula"
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
@@ -31,7 +31,7 @@
                 android:id="@+id/CeldaPelicula_TextView_RatingPelicula"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/CeldaFamoso_ImageView_ImagenFamoso"
+                android:layout_below="@id/CeldaPelicula_ImageView_ImagenPelicula"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
@@ -42,7 +42,7 @@
                 tools:text="0.0" />
 
             <TextView
-                android:id="@+id/CeldaFamoso_TextView_NombreFamoso"
+                android:id="@+id/CeldaPelicula_TextView_NombrePelicula"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/CeldaPelicula_TextView_RatingPelicula"

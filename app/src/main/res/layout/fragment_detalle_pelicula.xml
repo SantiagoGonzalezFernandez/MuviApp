@@ -1,14 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.FragmentDetallePelicula">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/detalle_peliculas_imageview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/logomuvi" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#BF000000"
+        android:orientation="vertical" />
+
+
+    <TextView
+        android:id="@+id/fragment_detalle_TituloPelicula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:text="Titulo de la Pelicula"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="normal" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_below="@id/fragment_detalle_TituloPelicula">
+
+        <TextView
+            android:id="@+id/fragment_detalle_DescripcionPelicula"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#BF000000"
+            android:gravity="center"
+            android:text="Sinopsis de la Pelicula"
+            android:textAllCaps="true"
+            android:textColor="#ffff"
+            android:textSize="15sp"
+            android:textStyle="normal"
+
+            />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearrepartodetalles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="330dp"
+        android:background="#BF000000"
+        android:orientation="vertical" />
+
+    <TextView
+        android:id="@+id/reparto_detalle_pelicula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="330dp"
+        android:text="Reparto"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="normal" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_famoso_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reparto_detalle_pelicula"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:scrollbars="horizontal">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+</RelativeLayout>
