@@ -1,8 +1,10 @@
-package com.muviteam.muviapp;
+package com.muviteam.muviapp.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.muviteam.muviapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
