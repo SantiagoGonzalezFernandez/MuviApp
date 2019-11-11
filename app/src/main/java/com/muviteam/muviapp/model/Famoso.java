@@ -9,57 +9,57 @@ public class Famoso implements Serializable {
     public static final String BASE_URL = "https://image.tmdb.org/t/p/original";
 
     @SerializedName("name")
-    private String nombre;
+    private String StringNombre;
     @SerializedName("popularity")
-    private String nacimiento;
+    private String StringNacimiento;
     @SerializedName("profile_path")
-    private String imagenDeFamoso;
-    private Integer cast_id;
-    private Integer id;
+    private String StringImagenDeFamoso;
+    private Integer IntegerCast_id;
+    private Integer StringId;
 
     public Famoso(String nombre, String nacimiento, String imagenDeFamoso, Integer id){
-        this.nombre = nombre;
-        this.nacimiento = nacimiento;
-        this.imagenDeFamoso = imagenDeFamoso;
-        this.id = id;
+        this.StringNombre = nombre;
+        this.StringNacimiento = nacimiento;
+        this.StringImagenDeFamoso = imagenDeFamoso;
+        this.StringId = id;
     }
 
     public Famoso() {
 
     }
 
-    public Integer getCast_id() {return cast_id; }
+    public Integer getCast_id() {return IntegerCast_id; }
 
     public void setNacimiento(String nacimiento) {
-        this.nacimiento = nacimiento;
+        this.StringNacimiento = nacimiento;
     }
 
     public Integer getId() {
-        return id;
+        return StringId;
     }
 
     public String getNombre() {
-        return nombre;
+        return StringNombre;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.StringNombre = nombre;
     }
 
     public void setImagenDeFamoso(String imagenDeFamoso) {
-        this.imagenDeFamoso = imagenDeFamoso;
+        this.StringImagenDeFamoso = imagenDeFamoso;
     }
 
     public String getNacimiento() {
-        return nacimiento;
+        return StringNacimiento;
     }
 
 
     public String getImagenDePelicula() {
-        return imagenDeFamoso;
+        return StringImagenDeFamoso;
     }
 
     public String generaURLImagen(){
-        return BASE_URL + imagenDeFamoso;
+        return BASE_URL + StringImagenDeFamoso;
     }
 }
