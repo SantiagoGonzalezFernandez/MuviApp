@@ -81,7 +81,7 @@ public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHo
         }
 
         public void cargarPelicula(Pelicula pelicula) {
-            Glide.with(imageViewImagenDePelicula.getContext()).load(pelicula.generaURLImagen()).placeholder(R.drawable.loading)
+            Glide.with(imageViewImagenDePelicula.getContext()).load(pelicula.generaURLImagen()).placeholder(R.drawable.load)
                     .error(R.drawable.logomuvi).into(imageViewImagenDePelicula);
             textViewTitulo.setText(pelicula.getTitulo());
             textViewDirector.setText("");

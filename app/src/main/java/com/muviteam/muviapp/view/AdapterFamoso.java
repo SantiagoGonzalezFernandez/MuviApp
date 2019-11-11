@@ -60,7 +60,7 @@ public class AdapterFamoso extends RecyclerView.Adapter<AdapterFamoso.ViewHolder
 
         }
         public void cargarFamoso(Famoso famoso){
-            Glide.with(imageViewImagenFamoso.getContext()).load(famoso.generaURLImagen()).placeholder(R.drawable.loading)
+            Glide.with(imageViewImagenFamoso.getContext()).load(famoso.generaURLImagen()).placeholder(R.drawable.load)
                     .error(R.drawable.logomuvi).into(imageViewImagenFamoso);
             textViewNombre.setText(famoso.getNombre());
         }
