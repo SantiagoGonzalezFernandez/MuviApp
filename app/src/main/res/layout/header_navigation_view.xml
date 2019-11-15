@@ -5,15 +5,11 @@
     android:gravity="bottom">
 
     <ImageView
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background"
+        android:scaleType="fitXY"
+        android:src="@drawable/logomuvi"
         android:layout_width="match_parent"
         android:layout_height="230dp" />
 
-    <ImageView
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_foreground"
-        android:layout_width="match_parent"
-        android:layout_height="230dp" />
+
 
 </FrameLayout>
