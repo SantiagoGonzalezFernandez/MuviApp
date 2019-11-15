@@ -16,8 +16,10 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.muviteam.muviapp.R;
+import com.muviteam.muviapp.model.Famoso;
+import com.muviteam.muviapp.model.Pelicula;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,FragmentHome.ListenerDeFragment{
 
     private Toolbar myToolbar;
     private ArrayAdapter<String> myArrayAdapterString;
@@ -116,5 +118,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .replace(R.id.MainActivity_FrameLayout_ContenedorDeFragments,fragment)
                 .addToBackStack(null)
                 .commit();
+    }
+
+    @Override
+    public void recibirPelicula(Pelicula pelicula) {
+
+    }
+
+    @Override
+    public void recibirFamoso(Famoso famoso) {
+
     }
 }

@@ -44,7 +44,7 @@ public class ToolbarFragment extends Fragment {
 
         myViewPager.setAdapter(myAdapter);
         myTabLayout.setupWithViewPager(myViewPager);
-
+        myViewPager.setCurrentItem(1);
         return view;
     }
 

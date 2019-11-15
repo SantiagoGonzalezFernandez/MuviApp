@@ -1,5 +1,6 @@
 package com.muviteam.muviapp.view;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,8 +85,8 @@ public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHo
             Glide.with(imageViewImagenDePelicula.getContext()).load(pelicula.generaURLImagen()).placeholder(R.drawable.load)
                     .error(R.drawable.logomuvi).into(imageViewImagenDePelicula);
             textViewTitulo.setText(pelicula.getTitulo());
-            textViewDirector.setText("");
-            puntaje = Double.toString(pelicula.getPopularity());
+     //       textViewDirector.setText("");
+//            puntaje = Double.toString(pelicula.getPopularity());
             textViewPuntaje.setText(puntaje);
             ControllerPelicula controllerPelicula = new ControllerPelicula();
             controllerPelicula.traerCredits(new ResultListener<Credits>() {
