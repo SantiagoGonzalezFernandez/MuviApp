@@ -26,7 +26,8 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentHome extends Fragment implements AdapterPelicula.ListenerDelAdapter, AdapterFamoso.ListenerDelAdapter {
+public class FragmentHome extends Fragment implements AdapterPelicula.ListenerDelAdapter,
+        AdapterFamoso.ListenerDelAdapter {
 
     private RecyclerView recyclerView,recyclerEstrenos,recyclerPopulares;
     private ListenerDeFragment listenerDelFragment;
@@ -44,7 +45,7 @@ public class FragmentHome extends Fragment implements AdapterPelicula.ListenerDe
         view = inflater.inflate(R.layout.fragment_home, container, false);
         encontrarVariables();
         reconocerAdapters();
-       // viewpaigearlaToda();
+        viewpaigearlaToda();
         traePopulares();
         traePelis();
         traeUpcom();
@@ -67,7 +68,7 @@ public class FragmentHome extends Fragment implements AdapterPelicula.ListenerDe
         adapterViewPager = new AdapterViewPager(getActivity().getSupportFragmentManager(), fragmentList);
     }
 
-   /* public void viewpaigearlaToda(){
+    public void viewpaigearlaToda(){
         peliculaController.traerListaPeliculas(new ResultListener<List<Pelicula>>() {
             @Override
             public void finish(List<Pelicula> result) {
@@ -75,10 +76,10 @@ public class FragmentHome extends Fragment implements AdapterPelicula.ListenerDe
                     FragmentViewPager fragmentViewPager = FragmentViewPager.dameUnFragment(pelicula);
                     fragmentList.add(fragmentViewPager);
                 }
-                adapterViewPager.actuslizarListaFragment(fragmentList);
+                adapterViewPager.actualizarListFragment(fragmentList);
             }
         });
-    }*/
+    }
 
     public void traePelis(){
         peliculaController.traePelicula(new ResultListener<List<Pelicula>>() {

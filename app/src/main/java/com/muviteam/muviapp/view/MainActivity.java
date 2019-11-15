@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -72,9 +73,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
 
         MenuItem myMenuItemSearch = menu.findItem(R.id.ToolBarMenu_Item_action_search);
+        MenuItem myMenuItemProfile = menu.findItem(R.id.ToolBarMenu_Item_perfilUser);
+
 
         SearchView mySearchView = (SearchView) myMenuItemSearch.getActionView();
-        mySearchView.setQueryHint("Search");
+        mySearchView.setQueryHint("Busqueda por Actor o Pelicula");
 
         mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -89,6 +92,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        /*View vista = myMenuItemProfile.getActionView();
+
+        vista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Acceso al Perfil del Usuario", Toast.LENGTH_LONG).show();
+            }
+        });*/
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -98,14 +110,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Integer integerId = menuItem.getItemId();
         //uso un switch para ponerle un comportamiento distinto a cada boton
         switch (integerId) {
-            case R.id.MenuPrincipal_Item_Perfil:
-                Toast.makeText(this, "Entrado al perfil del usuario", Toast.LENGTH_SHORT).show();
+            case R.id.MenuPrincipal_Item_Home:
+                Toast.makeText(this, "Volviendo al Home", Toast.LENGTH_LONG).show();
+                pegarFragment(new FragmentHome());
                 break;
             case R.id.MenuPrincipal_Item_Configuracion:
-                Toast.makeText(this, "Entrando a configuracion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Entrando a configuracion", Toast.LENGTH_LONG).show();
                 break;
             case R.id.MenuPrincipal_Item_CerrarSesion:
-                Toast.makeText(this, "Hasta Luego (Cerrar sesion)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Hasta Luego (Cerrar sesion)", Toast.LENGTH_LONG).show();
                 break;
         }
         myDrawerLayout.closeDrawers();
