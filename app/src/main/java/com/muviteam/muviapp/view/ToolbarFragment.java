@@ -15,10 +15,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.material.tabs.TabLayout;
 import com.muviteam.muviapp.R;
+import com.muviteam.muviapp.model.Famoso;
+import com.muviteam.muviapp.model.Pelicula;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +29,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ToolbarFragment extends Fragment {
+public class ToolbarFragment extends Fragment implements FragmentHome.ListenerDeFragment{
 
     ViewPager myViewPager;
     AdapterViewPagerToolBar myAdapter;
@@ -54,7 +57,26 @@ public class ToolbarFragment extends Fragment {
     }
 
 
+    @Override
+    public void recibirPelicula(final Pelicula pelicula) {
+        Toast.makeText(getContext(), pelicula.getTitulo(), Toast.LENGTH_SHORT).show();
+        FragmentDetallePelicula fragment_detallePelicula = new FragmentDetallePelicula();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(fragment_detallePelicula.CLAVE_PELICULA, pelicula);
+        fragment_detallePelicula.setArguments(bundle);
+        pegarFragment(fragment_detallePelicula);
+    }
 
+    @Override
+    public void recibirFamoso(Famoso famoso) {
 
+    }
 
+    private void pegarFragment(Fragment fragment){
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.MainActivity_FrameLayout_ContenedorDeFragments,fragment)
+                .addToBackStack(null)
+                .commit();
+    }
 }

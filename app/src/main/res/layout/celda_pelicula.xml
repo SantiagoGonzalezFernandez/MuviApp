@@ -1,19 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="130dp"
-    android:layout_height="290dp"
+    android:layout_width="100dp"
+    android:layout_height="230dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/CeldaFamoso_CardView_Contenedor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/colorCelda"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        app:cardCornerRadius="4dp"
+        android:backgroundTint="@color/colorSecundario"
+        app:cardCornerRadius="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         app:cardElevation="6dp">
 
         <RelativeLayout
@@ -23,7 +24,7 @@
             <ImageView
                 android:id="@+id/CeldaPelicula_ImageView_ImagenPelicula"
                 android:layout_width="match_parent"
-                android:layout_height="190dp"
+                android:layout_height="130dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:scaleType="fitXY" />
 
@@ -39,7 +40,8 @@
                 android:gravity="center_vertical"
                 android:paddingTop="4dp"
                 android:textColor="@color/colorTexto"
-                tools:text="0.0" />
+                tools:text="0.0"
+                android:drawableLeft="@drawable/ic_star_black_24dp" />
 
             <TextView
                 android:id="@+id/CeldaPelicula_TextView_NombrePelicula"
@@ -51,6 +53,7 @@
                 android:layout_marginBottom="5dp"
                 android:paddingTop="8dp"
                 android:textColor="@color/colorTexto"
+                android:gravity="center_horizontal"
                 android:textStyle="bold"
                 tools:text="@string/nombrepelicula" />
 

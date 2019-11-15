@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".view.FragmentHome">
 
     <ScrollView
@@ -19,13 +19,14 @@
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/FragmentViewPager_ViewPager_Contenedor"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="175dp"
                 android:background="@color/colorSecundario" />
 
             <ImageView
                 android:id="@+id/FragmentViewPager_ImageView_FondoPelicula"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="matrix"
                 android:layout_alignBottom="@id/FragmentViewPager_ViewPager_Contenedor"
                 android:layout_alignParentTop="true">
             </ImageView>
@@ -35,33 +36,39 @@
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/FragmentViewPager_ViewPager_Contenedor"
+                android:layout_toRightOf="@id/FragmentViewPager_ImageView_PosterPelicula"
                 android:layout_alignParentEnd="true"
                 android:background="@color/colorPrincipal"
                 android:text="@string/nombrepelicula"
                 android:textColor="@color/colorTexto"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:layout_alignParentRight="true" />
 
             <TextView
                 android:id="@+id/FragmentViewPager_TextView_Director"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/FragmentViewPager_TextView_NombrePelicula"
+                android:layout_toRightOf="@id/FragmentViewPager_ImageView_PosterPelicula"
                 android:layout_alignStart="@id/FragmentViewPager_TextView_NombrePelicula"
                 android:layout_alignParentEnd="true"
                 android:background="@color/colorPrincipal"
                 android:paddingBottom="5dp"
                 android:text="@string/nombre_director"
                 android:textColor="@color/colorTexto"
-                android:textSize="15sp" />
+                android:textSize="12sp"
+                android:layout_alignLeft="@id/FragmentViewPager_TextView_NombrePelicula"
+                android:layout_alignParentRight="true" />
 
             <ImageView
                 android:id="@+id/FragmentViewPager_ImageView_PosterPelicula"
-                android:layout_width="115dp"
-                android:layout_height="160dp"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
                 android:layout_alignBottom="@id/FragmentViewPager_TextView_Director"
                 android:layout_marginStart="15dp"
                 android:layout_marginBottom="10dp"
-                android:background="@color/colorCaracteristico" />
+                android:background="@color/colorCaracteristico"
+                android:layout_marginLeft="15dp" />
         </RelativeLayout>
     </ScrollView>
 </FrameLayout>

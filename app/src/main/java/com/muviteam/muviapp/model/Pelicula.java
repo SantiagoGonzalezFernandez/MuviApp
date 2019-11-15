@@ -20,10 +20,11 @@ public class Pelicula implements Serializable {
     private String stringImagenurlcelda;
     @SerializedName("overview")
     private String stringSinopsis;
-    private Double doublePopularity;
+    @SerializedName("vote_average")
+    private Float popularity;
 
-    public Double getPopularity() {
-        return doublePopularity;
+    public Float getPopularity() {
+        return popularity;
     }
 
     public Pelicula(String stringTitulo, String stringImagenurl, String stringImagenurlcelda) {

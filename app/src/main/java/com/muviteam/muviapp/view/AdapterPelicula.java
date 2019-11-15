@@ -86,7 +86,7 @@ public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHo
                     .error(R.drawable.logomuvi).into(imageViewImagenDePelicula);
             textViewTitulo.setText(pelicula.getTitulo());
      //       textViewDirector.setText("");
-//            puntaje = Double.toString(pelicula.getPopularity());
+            puntaje = Float.toString(pelicula.getPopularity());
             textViewPuntaje.setText(puntaje);
             ControllerPelicula controllerPelicula = new ControllerPelicula();
             controllerPelicula.traerCredits(new ResultListener<Credits>() {

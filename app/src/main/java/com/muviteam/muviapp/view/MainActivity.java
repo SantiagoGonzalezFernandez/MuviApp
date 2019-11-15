@@ -20,7 +20,8 @@ import com.muviteam.muviapp.R;
 import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.Pelicula;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,FragmentHome.ListenerDeFragment{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+        ,FragmentHome.ListenerDeFragment{
 
     private Toolbar myToolbar;
     private ArrayAdapter<String> myArrayAdapterString;
@@ -35,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         encuentroVariablesPorId();
         creoElAppBar();
-
         pegarFragment(new ToolbarFragment());
 
     }
