@@ -71,7 +71,6 @@ public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHo
             imageViewImagenDePelicula = itemView.findViewById(R.id.CeldaPelicula_ImageView_ImagenPelicula);
             textViewTitulo = itemView.findViewById(R.id.CeldaPelicula_TextView_NombrePelicula);
             textViewPuntaje = itemView.findViewById(R.id.CeldaPelicula_TextView_RatingPelicula);
-            // textViewDirector = itemView.findViewById(R.id.MovieCard_TextView_DirectorPelicula);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
