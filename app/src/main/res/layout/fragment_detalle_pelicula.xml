@@ -23,7 +23,6 @@
                 android:id="@+id/FragmentViewPager_ViewPager_Contenedor"
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
-                android:background="@color/colorSecundario"
                 />
 
 
@@ -33,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="matrix"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/load"
                 android:layout_alignParentTop="true"
                 android:layout_alignBottom="@id/FragmentViewPager_ViewPager_Contenedor"
                 />
@@ -81,7 +80,7 @@
                 android:layout_height="150dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="115dp"
-                android:background="@color/colorCaracteristico"
+                android:background="@color/colorAccent"
                 android:layout_marginLeft="15dp" />
 
             <VideoView
