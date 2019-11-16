@@ -4,6 +4,7 @@ import com.muviteam.muviapp.model.Credits;
 import com.muviteam.muviapp.model.FamosoDao;
 import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.model.PeliculaDao;
+import com.muviteam.muviapp.model.Videos;
 import com.muviteam.muviapp.utils.ResultListener;
 
 import java.util.List;
@@ -71,6 +72,15 @@ public class ControllerPelicula {
             }
         }, movieId);
 
+    }
+
+    public void traerTrailer(final ResultListener<Videos> listenerDeLaVista, Integer movieId) {
+        peliculaDAO.traerTrailer(new ResultListener<Videos>() {
+            @Override
+            public void finish(Videos result) {
+                listenerDeLaVista.finish(result);
+            }
+        }, movieId);
     }
 
 }

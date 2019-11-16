@@ -19,6 +19,7 @@ import com.muviteam.muviapp.controller.ControllerPelicula;
 import com.muviteam.muviapp.model.Credits;
 import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.Pelicula;
+import com.muviteam.muviapp.model.Videos;
 import com.muviteam.muviapp.utils.ResultListener;
 
 /**
@@ -29,7 +30,7 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
     public static final String CLAVE_PELICULA = "clavePelicula";
 
     private RecyclerView recyclerView;
-    private TextView textViewTitulo, textViewSinopsis;
+    private TextView textViewTitulo, textViewSinopsis, botonPelicula;
     private ImageView imagenPelicula, posterPelicula;
     private AdapterFamoso adapterFamoso;
     private ListenerDeFragment listenerDelFragment;
@@ -62,7 +63,7 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         textViewTitulo = view.findViewById(R.id.fragment_detalle_TituloPelicula);
         textViewSinopsis = view.findViewById(R.id.fragment_detalle_DescripcionPelicula);
         imagenPelicula = view.findViewById(R.id.detalle_peliculas_imageview);
-
+        botonPelicula = view.findViewById(R.id.detalle_peliculas_boton_trailer);
         posterPelicula = view.findViewById(R.id.poster_detalle_pelicula);
 
         recyclerView = view.findViewById(R.id.fragment_famoso_recycler);
@@ -76,6 +77,17 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
                 .error(R.drawable.logomuvi).into(posterPelicula);
         textViewTitulo.setText(peliculaSeleccionada.getTitulo());
         textViewSinopsis.setText(peliculaSeleccionada.getSinopsis());
+        botonPelicula.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                peliculaController.traerTrailer(new ResultListener<Videos>() {
+                    @Override
+                    public void finish(Videos result) {
+
+                    }
+                },peliculaSeleccionada.getId());
+            }
+        });
 
     }
 
@@ -90,5 +102,6 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
 
     public interface ListenerDeFragment{
         public void informarFamoso(Famoso famoso);
+        public void informarTrailer(Pelicula pelicula);
     }
 }

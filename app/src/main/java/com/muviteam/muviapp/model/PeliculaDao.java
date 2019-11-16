@@ -94,4 +94,19 @@ public class PeliculaDao extends PeliculaRetrofitDao {
             }
         });
     }
+
+    public void traerTrailer(final ResultListener<Videos> resultListenerController, Integer movieId){
+        Call<Videos> videosCall = peliculasService.traerVideos(movieId, API_KEY);
+        videosCall.enqueue(new Callback<Videos>() {
+            @Override
+            public void onResponse(Call<Videos> call, Response<Videos> response) {
+                Videos resultsCredit = response.body();
+                resultListenerController.finish(resultsCredit);
+            }
+            @Override
+            public void onFailure(Call<Videos> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+    }
 }
