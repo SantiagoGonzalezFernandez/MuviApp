@@ -16,4 +16,5 @@
     <string name="nombre_director">Nombre Director</string>
     <string name="nombre_famoso">Nombre Famoso</string>
     <string name="cumple_hoy">Cumplen Hoy</string>
+    <string name="titulogeneros">generos</string>
 </resources>

@@ -3,11 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.generos">
+    tools:context=".view.generos"
+    android:padding="16dp"
+    android:background="@color/colorPrimary2">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:text="@string/titulogeneros"
+        android:textColor="@color/colorPrimary"
+        android:textAllCaps="true"
+        android:textSize="20sp" />
+
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:columnCount="2"
 
+        
+
+    />
+</ScrollView>
 </FrameLayout>
