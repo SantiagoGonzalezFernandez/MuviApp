@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ToolbarFragment extends Fragment implements FragmentHome.ListenerDeFragment{
+public class ToolbarFragment extends Fragment{
 
     ViewPager myViewPager;
     AdapterViewPagerToolBar myAdapter;
@@ -57,20 +57,6 @@ public class ToolbarFragment extends Fragment implements FragmentHome.ListenerDe
     }
 
 
-    @Override
-    public void recibirPelicula(final Pelicula pelicula) {
-        Toast.makeText(getContext(), pelicula.getTitulo(), Toast.LENGTH_SHORT).show();
-        FragmentDetallePelicula fragment_detallePelicula = new FragmentDetallePelicula();
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(fragment_detallePelicula.CLAVE_PELICULA, pelicula);
-        fragment_detallePelicula.setArguments(bundle);
-        pegarFragment(fragment_detallePelicula);
-    }
-
-    @Override
-    public void recibirFamoso(Famoso famoso) {
-
-    }
 
     private void pegarFragment(Fragment fragment){
         getFragmentManager()

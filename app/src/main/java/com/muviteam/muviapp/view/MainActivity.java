@@ -128,13 +128,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void pegarFragment(Fragment fragment){
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.MainActivity_FrameLayout_ContenedorDeFragments,fragment)
+                .add(R.id.MainActivity_FrameLayout_ContenedorDeFragments,fragment)
                 .addToBackStack(null)
                 .commit();
     }
 
     @Override
     public void recibirPelicula(Pelicula pelicula) {
+        Toast.makeText(this, pelicula.getTitulo(), Toast.LENGTH_SHORT).show();
+        FragmentDetallePelicula fragment_detallePelicula = new FragmentDetallePelicula();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(fragment_detallePelicula.CLAVE_PELICULA, pelicula);
+        fragment_detallePelicula.setArguments(bundle);
+        pegarFragment(fragment_detallePelicula);
 
     }
 
