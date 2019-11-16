@@ -13,6 +13,9 @@ public interface Service {
     @GET("movie/{movie_id}/credits")
     Call<Credits> traerCredits(@Path("movie_id") Integer movieId, @Query("api_key") String apiKey);
 
+    @GET("movie/{movie_id}/videos")
+    Call<Credits> traerVideos(@Path("movie_id") Integer movieId, @Query("api_key") String apiKey);
+
     @GET("movie/upcoming")
     Call<ContainerPelicula> traerUpcoming(@Query("api_key") String apiKey);
 
