@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (integerId) {
             case R.id.MenuPrincipal_Item_Home:
                 Toast.makeText(this, "Volviendo al Home", Toast.LENGTH_LONG).show();
-                pegarFragment(new FragmentHome());
+                
                 break;
             case R.id.MenuPrincipal_Item_Configuracion:
                 Toast.makeText(this, "Entrando a configuracion", Toast.LENGTH_LONG).show();
