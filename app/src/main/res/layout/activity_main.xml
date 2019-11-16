@@ -27,7 +27,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             app:headerLayout="@layout/header_navigation_view"
-            app:menu="@menu/menu_principal">
+            app:menu="@menu/menu_principal"
+            android:background="@color/colorPrimary2"
+            app:itemTextColor="@color/colorPrimary">
 
         </com.google.android.material.navigation.NavigationView>
 

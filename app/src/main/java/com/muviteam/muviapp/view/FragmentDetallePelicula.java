@@ -30,7 +30,7 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
 
     private RecyclerView recyclerView;
     private TextView textViewTitulo, textViewSinopsis;
-    private ImageView imagenPelicula;
+    private ImageView imagenPelicula, posterPelicula;
     private AdapterFamoso adapterFamoso;
     private ListenerDeFragment listenerDelFragment;
     private Pelicula peliculaSeleccionada;
@@ -62,12 +62,18 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         textViewTitulo = view.findViewById(R.id.fragment_detalle_TituloPelicula);
         textViewSinopsis = view.findViewById(R.id.fragment_detalle_DescripcionPelicula);
         imagenPelicula = view.findViewById(R.id.detalle_peliculas_imageview);
+
+        posterPelicula = view.findViewById(R.id.poster_detalle_pelicula);
+
         recyclerView = view.findViewById(R.id.fragment_famoso_recycler);
     }
 
     public void cargarVariables(){
-        Glide.with(this).load(peliculaSeleccionada.generaURLImagen()).placeholder(R.drawable.load)
+        Glide.with(this).load(peliculaSeleccionada.generaURLImagencelda()).placeholder(R.drawable.load)
                 .error(R.drawable.logomuvi).into(imagenPelicula);
+
+        Glide.with(this).load(peliculaSeleccionada.generaURLImagen()).placeholder(R.drawable.load)
+                .error(R.drawable.logomuvi).into(posterPelicula);
         textViewTitulo.setText(peliculaSeleccionada.getTitulo());
         textViewSinopsis.setText(peliculaSeleccionada.getSinopsis());
 

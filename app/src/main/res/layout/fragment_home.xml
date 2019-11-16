@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#747474"
+    android:background="@color/colorPrimaryDark"
     tools:context=".view.FragmentHome">
 
     <ScrollView
@@ -15,29 +15,43 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/MainActivity_TextView_EstrenosViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:text="ESTRENOS"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textAllCaps="true"
+                android:background="@color/colorPrimary2"
+                />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/fragment_view_Pager"
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="270dp">
             </androidx.viewpager.widget.ViewPager>
 
             <RelativeLayout
                 android:id="@+id/MainActivity_RelativeLayout_PopularLista"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorPrincipal">
+                android:layout_marginBottom="10dp"
+                android:background="@color/colorPrimary2">
 
                 <TextView
                     android:id="@+id/MainActivity_TextView_Popular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
+                    android:padding="7dp"
                     android:text="@string/popular_movies_es"
-                    android:textColor="@color/colorTexto"
+                    android:textColor="@color/colorPrimary"
+                    android:textAllCaps="true"
                     android:textSize="20sp" />
 
                 <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
@@ -45,7 +59,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/MainActivity_TextView_Popular"
-                    android:orientation="horizontal" />
+                    android:orientation="horizontal"
+                    app:msrv_gravity="start"
+                    app:msrv_ms_per_inch="100"
+                    app:msrv_snap_count="3" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -53,23 +70,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:background="@color/colorPrincipal">
+                android:background="@color/colorPrimary2">
 
                 <TextView
                     android:id="@+id/MainActivity_TextView_TopRated"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
+                    android:padding="7dp"
                     android:text="@string/top_rating_movies_es"
-                    android:textColor="@color/colorTexto"
-                    android:textSize="20sp" />
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"
+                    />
 
                 <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
                     android:id="@+id/MainActivity_MultiSnapRecyclerView_TopRatedListMovie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/MainActivity_TextView_TopRated"
-                    android:orientation="horizontal" />
+                    android:orientation="horizontal"
+                    app:msrv_gravity="start"
+                    app:msrv_ms_per_inch="100"
+                    app:msrv_snap_count="3" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -77,24 +99,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:background="@color/colorPrincipal">
+                android:background="@color/colorPrimary2">
 
                 <TextView
                     android:id="@+id/MainActivity_TextView_Upcoming"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
+                    android:padding="7dp"
                     android:text="@string/upcoming_movies_es"
-                    android:textColor="@color/colorTexto"
-                    android:textSize="20sp" />
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"
+                    />
 
                 <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
                     android:id="@+id/MainActivity_MultiSnapRecyclerView_UpcomingListMovie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/MainActivity_TextView_Upcoming"
-                    android:orientation="horizontal" />
+                    android:orientation="horizontal"
+                    app:msrv_gravity="start"
+                    app:msrv_ms_per_inch="100"
+                    app:msrv_snap_count="3" />
+
             </RelativeLayout>
+
 
             <RelativeLayout
                 android:id="@+id/MainActivity_RelativeLayout_Cumpleanos"
@@ -110,7 +139,8 @@
                     android:padding="8dp"
                     android:text="@string/cumple_hoy"
                     android:textColor="@color/colorTexto"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textAllCaps="true"/>
 
                 <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
                     android:id="@+id/MainActivity_MultiSnapRecyclerView_cumpleanosListMovie"
@@ -120,6 +150,8 @@
                     android:orientation="horizontal" />
 
             </RelativeLayout>
+
+
 
         </LinearLayout>
 

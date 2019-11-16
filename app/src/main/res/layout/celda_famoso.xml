@@ -10,7 +10,6 @@
         android:id="@+id/CeldaFamoso_CardView_Contenedor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/colorCelda"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
         app:cardCornerRadius="4dp"

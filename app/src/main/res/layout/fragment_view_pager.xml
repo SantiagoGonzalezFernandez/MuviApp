@@ -19,7 +19,7 @@
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/FragmentViewPager_ViewPager_Contenedor"
                 android:layout_width="match_parent"
-                android:layout_height="175dp"
+                android:layout_height="230dp"
                 android:background="@color/colorSecundario" />
 
             <ImageView
@@ -38,6 +38,7 @@
                 android:layout_below="@id/FragmentViewPager_ViewPager_Contenedor"
                 android:layout_toRightOf="@id/FragmentViewPager_ImageView_PosterPelicula"
                 android:layout_alignParentEnd="true"
+                android:layout_marginLeft="10dp"
                 android:background="@color/colorPrincipal"
                 android:text="@string/nombrepelicula"
                 android:textColor="@color/colorTexto"

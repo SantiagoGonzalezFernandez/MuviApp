@@ -8,6 +8,6 @@
         android:title="Configuracion"/>
     <item
         android:id="@+id/MenuPrincipal_Item_CerrarSesion"
-        android:title="Cerrar Sesion"/>
+        android:title="Cerrar Sesion" />
 
 </menu>

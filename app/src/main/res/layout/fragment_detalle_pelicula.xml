@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.FragmentDetallePelicula"
-    android:background="@color/colorSecundario">
+    android:background="@color/colorPrimaryDark">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbarAlwaysDrawHorizontalTrack="true"
-        android:layout_marginTop="41dp">
+        android:scrollbarAlwaysDrawHorizontalTrack="true">
 
         <RelativeLayout
             android:layout_width="match_parent"

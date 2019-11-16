@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorAccent">#FF92B5</color>
+    <color name="colorAccent2">#FFF9a5</color>
+    <color name="colorPrimary2">#202020</color>
 
-    <color name="colorPrincipal">#303030</color>
-    <color name="colorSecundario">#242424</color>
-    <color name="colorCaracteristico">#FF92B5</color>
-    <color name="colorTexto">#FFFFFF</color>
-    <color name="colorCelda">#565656</color>
+    <color name="colorPrincipal">#1D2223</color>
+    <color name="colorSecundario">#747474</color>
+    <color name="colorCaracteristico">#1880BC</color>
+    <color name="colorBlanco">#FDFFFC</color>
+    <color name="colorTexto">#FFF</color>
 
 </resources>

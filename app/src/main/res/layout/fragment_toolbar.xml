@@ -16,12 +16,12 @@
             android:id="@+id/FragmentToolbar_TabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrincipal"
+            android:background="@color/colorPrimaryDark"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@color/colorCaracteristico"
+            app:tabIndicatorColor="@color/colorAccent"
             app:tabMode="fixed"
             app:tabTextColor="@color/colorTexto"
-            app:tabSelectedTextColor="@color/colorCaracteristico"/>
+            app:tabSelectedTextColor="@color/colorAccent"/>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/FragmentToolbar_ViewPager_ContenedorDeFragments"
