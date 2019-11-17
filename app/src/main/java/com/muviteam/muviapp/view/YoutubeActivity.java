@@ -15,6 +15,7 @@ import com.muviteam.muviapp.R;
 public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener,
         YouTubePlayer.PlaybackEventListener {
 
+    public static final String CLAVE_KEY = "key";
     YouTubePlayerView youTubePlayerView;
     String stringClaveYoutube = "AIzaSyBK5m-PZyl8BS0IUpKrGh2_fb9CygioTho";
 
@@ -25,7 +26,12 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
 
         encontrarVariables();
 
-        youTubePlayerView.initialize(stringClaveYoutube,this);
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        String key = bundle.getString(CLAVE_KEY);
+
+        youTubePlayerView.initialize(key,this);
+
     }
 
     private void encontrarVariables(){

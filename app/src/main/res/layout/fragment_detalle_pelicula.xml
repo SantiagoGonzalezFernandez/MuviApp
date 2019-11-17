@@ -37,10 +37,11 @@
                 android:layout_alignBottom="@id/FragmentViewPager_ViewPager_Contenedor"
                 />
 
-            <TextView
+            <Button
                 android:id="@+id/detalle_peliculas_boton_trailer"
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:layout_marginTop="55dp"
                 android:drawableTop="@drawable/ic_play_circle_outline_black_24dp"
                 />

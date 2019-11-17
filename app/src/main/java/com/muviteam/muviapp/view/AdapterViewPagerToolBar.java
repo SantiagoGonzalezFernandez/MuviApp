@@ -19,7 +19,7 @@ public class AdapterViewPagerToolBar extends FragmentPagerAdapter {
         super(fm);
         fragmentList.add(new FragmentHome());
         fragmentList.add(new FragmentHome());
-        fragmentList.add(new FragmentHome());
+        fragmentList.add(new FragmentGeneros());
 
         stringListTitles.add("Watchlist");
         stringListTitles.add("Home");

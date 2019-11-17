@@ -7,15 +7,19 @@ public class Videos {
     private Integer id;
     private List<Pelicula> results;
 
+
     public Videos() {
         super();
         this.id = id;
         this.results = results;
+
+
     }
 
     public Integer getId() {
         return id;
     }
+
 
     public void setId(Integer id) {
         this.id = id;

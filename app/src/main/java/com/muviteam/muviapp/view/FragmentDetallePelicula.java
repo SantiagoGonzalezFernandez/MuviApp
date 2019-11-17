@@ -1,6 +1,7 @@
 package com.muviteam.muviapp.view;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,12 +32,14 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
     public static final String CLAVE_PELICULA = "clavePelicula";
 
     private RecyclerView recyclerView;
-    private TextView textViewTitulo, textViewSinopsis, botonPelicula;
+    private TextView textViewTitulo, textViewSinopsis;
+    private Button botonTrailer;
     private ImageView imagenPelicula, posterPelicula;
     private AdapterFamoso adapterFamoso;
     private ListenerDeFragment listenerDelFragment;
     private Pelicula peliculaSeleccionada;
     private View view;
+    private String key;
     private ControllerPelicula peliculaController;
 
     @Override
@@ -63,27 +67,26 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         textViewTitulo = view.findViewById(R.id.fragment_detalle_TituloPelicula);
         textViewSinopsis = view.findViewById(R.id.fragment_detalle_DescripcionPelicula);
         imagenPelicula = view.findViewById(R.id.detalle_peliculas_imageview);
-        botonPelicula = view.findViewById(R.id.detalle_peliculas_boton_trailer);
+        botonTrailer = view.findViewById(R.id.detalle_peliculas_boton_trailer);
         posterPelicula = view.findViewById(R.id.poster_detalle_pelicula);
-
         recyclerView = view.findViewById(R.id.fragment_famoso_recycler);
     }
 
     public void cargarVariables(){
         Glide.with(this).load(peliculaSeleccionada.generaURLImagencelda()).placeholder(R.drawable.load)
                 .error(R.drawable.logomuvi).into(imagenPelicula);
-
         Glide.with(this).load(peliculaSeleccionada.generaURLImagen()).placeholder(R.drawable.load)
                 .error(R.drawable.logomuvi).into(posterPelicula);
         textViewTitulo.setText(peliculaSeleccionada.getTitulo());
         textViewSinopsis.setText(peliculaSeleccionada.getSinopsis());
-        botonPelicula.setOnClickListener(new View.OnClickListener() {
+        botonTrailer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 peliculaController.traerTrailer(new ResultListener<Videos>() {
                     @Override
                     public void finish(Videos result) {
-
+                        key = result.getResults().get(3).toString();
+                        cambiarDeActivity();
                     }
                 },peliculaSeleccionada.getId());
             }
@@ -102,6 +105,13 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
 
     public interface ListenerDeFragment{
         public void informarFamoso(Famoso famoso);
-        public void informarTrailer(Pelicula pelicula);
+    }
+
+    private void cambiarDeActivity(){
+        Intent intent = new Intent(getContext(),YoutubeActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString(YoutubeActivity.CLAVE_KEY,key);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

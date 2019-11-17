@@ -11,7 +11,7 @@ public class Pelicula implements Serializable {
     @SerializedName("title")
     private String stringTitulo;
     private Integer integerId;
-    private String key;
+
     private String stringDirector;
     @SerializedName("release_date")
     private String stringFechaDeEstreno;
@@ -102,9 +102,6 @@ public class Pelicula implements Serializable {
         this.stringImagenurlcelda = imagenurlcelda;
     }
 
-    public String getKey() {
-        return key;
-    }
 
     @Override
     public boolean equals(Object o) {
