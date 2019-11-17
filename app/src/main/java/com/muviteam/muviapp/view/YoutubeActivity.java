@@ -15,9 +15,12 @@ import com.muviteam.muviapp.R;
 public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener,
         YouTubePlayer.PlaybackEventListener {
 
-    public static final String CLAVE_KEY = "key";
-    YouTubePlayerView youTubePlayerView;
-    String stringClaveYoutube = "AIzaSyBK5m-PZyl8BS0IUpKrGh2_fb9CygioTho";
+    public static final String CLAVE_KEY = "llave";
+    private YouTubePlayerView youTubePlayerView;
+
+    protected String stringClaveYoutube = "AIzaSyBK5m-PZyl8BS0IUpKrGh2_fb9CygioTho";
+
+    private String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        String key = bundle.getString(CLAVE_KEY);
+        key = bundle.getString(CLAVE_KEY);
 
         youTubePlayerView.initialize(key,this);
 
