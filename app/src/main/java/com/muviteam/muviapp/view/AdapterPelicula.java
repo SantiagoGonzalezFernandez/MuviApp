@@ -64,7 +64,6 @@ public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHo
         private TextView textViewPuntaje;
         private ImageView imageViewImagenDePelicula;
         private String puntaje;
-        private String director;
 
         public ViewHolderPeliculas(@NonNull View itemView) {
             super(itemView);
@@ -87,7 +86,7 @@ public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHo
             puntaje = Float.toString(pelicula.getPopularity());
             textViewPuntaje.setText(puntaje);
             ControllerPelicula controllerPelicula = new ControllerPelicula();
-            controllerPelicula.traerCredits(new ResultListener<Credits>() {
+            /*controllerPelicula.traerCredits(new ResultListener<Credits>() {
                 @Override
                 public void finish(Credits result) {
                     if (result != null) {
@@ -97,7 +96,7 @@ public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHo
                     }
                     textViewDirector.setText(director);
                 }
-            }, pelicula.getId());
+            }, pelicula.getId());*/
 
         }
     }
