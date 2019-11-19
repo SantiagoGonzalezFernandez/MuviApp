@@ -23,8 +23,7 @@ public class Pelicula implements Serializable {
     private String stringSinopsis;
     @SerializedName("vote_average")
     private Float popularity;
-    @SerializedName("key")
-    private String llave;
+
 
 
     public Float getPopularity() {
@@ -39,7 +38,6 @@ public class Pelicula implements Serializable {
         this.stringImagenurl = stringImagenurl;
         this.stringImagenurlcelda = stringImagenurlcelda;
         this.stringSinopsis = stringSinopsis;
-        this.llave = llave;
     }
 
     public String getTitulo() {
@@ -103,9 +101,6 @@ public class Pelicula implements Serializable {
     }
 
 
-    public String getLlave() {
-        return llave;
-    }
 
     public void setImagenurlcelda(String imagenurlcelda) {
         this.stringImagenurlcelda = imagenurlcelda;

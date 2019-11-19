@@ -85,7 +85,7 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
                 peliculaController.traerTrailer(new ResultListener<Videos>() {
                     @Override
                     public void finish(Videos result) {
-                        key = result.getResults().get(0).getLlave();
+                        key = result.getResults().get(0).getKey();
                         cambiarDeActivity();
                     }
                 },peliculaSeleccionada.getId());

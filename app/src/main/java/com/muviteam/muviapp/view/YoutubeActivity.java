@@ -45,7 +45,7 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean fueRestaurado) {
 
         if(!fueRestaurado){
-            youTubePlayer.cueVideo("BdJKm16Co6M");
+            youTubePlayer.cueVideo(key);
         }
 
     }

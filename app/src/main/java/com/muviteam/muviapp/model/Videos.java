@@ -6,13 +6,13 @@ import java.util.List;
 public class Videos {
 
         private String id;
-        private List<Pelicula> results;
+        private List<Trailer> results;
 
 
     public Videos() {
     }
 
-    public Videos(String id, List<Pelicula> results) {
+    public Videos(String id, List<Trailer> results) {
         this.id = id;
         this.results = results;
     }
@@ -22,7 +22,7 @@ public class Videos {
     }
 
 
-    public List<Pelicula> getResults() {
+    public List<Trailer> getResults() {
         return results;
     }
 }
