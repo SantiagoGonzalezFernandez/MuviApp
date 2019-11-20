@@ -15,13 +15,14 @@ public class PeliculaDao extends PeliculaRetrofitDao {
 
     private static final String BASE_URL = "https://api.themoviedb.org/3/";
     public static final String API_KEY = "41c70e6b99d8ae34c17c9c34fd81e344";
+    public static String LANGUAGE = "es";
 
     public PeliculaDao() {
         super(BASE_URL);
     }
 
     public void traerPeliculas(final ResultListener<List<Pelicula>> listenerDelControler){
-        Call<ContainerPelicula> call = peliculasService.traerPelicula(API_KEY);
+        Call<ContainerPelicula> call = peliculasService.traerPelicula(API_KEY,LANGUAGE);
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override
             public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {
@@ -36,7 +37,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerUpcoming(final ResultListener<List<Pelicula>> listenerDelControler){
-        Call<ContainerPelicula> call = peliculasService.traerUpcoming(API_KEY);
+        Call<ContainerPelicula> call = peliculasService.traerUpcoming(API_KEY,LANGUAGE);
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override
             public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {
@@ -66,7 +67,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerListaDeViewPager(final ResultListener<List<Pelicula>> listenerDelControler){
-        Call<ContainerPelicula> call = peliculasService.traerPeliculaViewPager(API_KEY);
+        Call<ContainerPelicula> call = peliculasService.traerPeliculaViewPager(API_KEY,LANGUAGE);
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override
             public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {
@@ -81,7 +82,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerPopulares(final ResultListener<List<Pelicula>> listenerDelControler){
-        Call<ContainerPelicula> call = peliculasService.traerPeliculasPopulares(API_KEY);
+        Call<ContainerPelicula> call = peliculasService.traerPeliculasPopulares(API_KEY,LANGUAGE);
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override
             public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {

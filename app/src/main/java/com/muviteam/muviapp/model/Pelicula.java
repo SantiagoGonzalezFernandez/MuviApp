@@ -24,8 +24,6 @@ public class Pelicula implements Serializable {
     @SerializedName("vote_average")
     private Float popularity;
 
-
-
     public Float getPopularity() {
         return popularity;
     }
@@ -100,12 +98,9 @@ public class Pelicula implements Serializable {
         return stringImagenurlcelda;
     }
 
-
-
     public void setImagenurlcelda(String imagenurlcelda) {
         this.stringImagenurlcelda = imagenurlcelda;
     }
-
 
     @Override
     public boolean equals(Object o) {
