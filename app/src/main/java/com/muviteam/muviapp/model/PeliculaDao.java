@@ -110,4 +110,20 @@ public class PeliculaDao extends PeliculaRetrofitDao {
             }
         });
     }
+
+    public void traerPeliculaDeFamoso(final ResultListener<List<Pelicula>> listResultListener, Integer famosoId) {
+        Call<ContainerPelicula> call = peliculasService.traerPeliculasDeFamoso(API_KEY,famosoId);
+        call.enqueue(new Callback<ContainerPelicula>() {
+            @Override
+            public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {
+                ContainerPelicula containerPelicula = response.body();
+                listResultListener.finish(containerPelicula.getResults());
+            }
+
+            @Override
+            public void onFailure(Call<ContainerPelicula> call, Throwable t) {
+
+            }
+        });
+    }
 }

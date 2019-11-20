@@ -24,6 +24,10 @@ public interface Service {
     @GET("person/popular")
     Call<ContainerFamoso> traerPersona(@Query("api_key") String apiKey);
 
+    @GET("discover/movie")
+    Call<ContainerPelicula> traerPeliculasDeFamoso(@Query("api_key") String apiKey,
+                                                   @Query("with_people") Integer famosoId);
+
     @GET("movie/now_playing")
     Call<ContainerPelicula> traerPeliculaViewPager(@Query("api_key") String apiKey,
                                                    @Query("language") String lenguaje);
