@@ -85,7 +85,7 @@
                 android:id="@+id/trailer_detalle_pelicula"
                 android:layout_width="match_parent"
                 android:layout_height="270dp"
-                android:layout_below="@id/FragmentViewPager_TextView_Director"
+                android:layout_below="@id/Fragment_TextView_Director"
                 />
 
             <TextView

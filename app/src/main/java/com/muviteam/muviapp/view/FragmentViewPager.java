@@ -55,7 +55,7 @@ public class FragmentViewPager extends Fragment {
         titulo = view.findViewById(R.id.FragmentViewPager_TextView_NombrePelicula);
         imagenFondo = view.findViewById(R.id.FragmentViewPager_ImageView_FondoPelicula);
         imagenPoster = view.findViewById(R.id.FragmentViewPager_ImageView_PosterPelicula);
-        director = view.findViewById(R.id.FragmentViewPager_TextView_Director);
+        director = view.findViewById(R.id.Fragment_TextView_Director);
     }
 
     public void cargarPelicula(){
