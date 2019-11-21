@@ -39,9 +39,9 @@
 
             <Button
                 android:id="@+id/detalle_peliculas_boton_trailer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="280dp"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_marginTop="270dp"
                 android:drawableTop="@drawable/ic_play_circle_outline_black_24dp"
                 />
 
@@ -75,7 +75,7 @@
             <ImageView
                 android:id="@+id/poster_detalle_pelicula"
                 android:layout_width="100dp"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="115dp"
                 android:background="@color/colorAccent"
@@ -85,7 +85,8 @@
                 android:id="@+id/trailer_detalle_pelicula"
                 android:layout_width="match_parent"
                 android:layout_height="270dp"
-                android:layout_below="@id/FragmentViewPager_TextView_Director"/>
+                android:layout_below="@id/FragmentViewPager_TextView_Director"
+                />
 
             <TextView
                 android:id="@+id/reparto_detalle_pelicula"
