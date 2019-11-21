@@ -32,14 +32,14 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
     public static final String CLAVE_PELICULA = "clavePelicula";
 
     private RecyclerView recyclerView;
-    private TextView textViewTitulo, textViewSinopsis;
+    private TextView textViewTitulo, textViewSinopsis, textViewDirector;
     private Button botonTrailer;
     private ImageView imagenPelicula, posterPelicula;
     private AdapterFamoso adapterFamoso;
     private ListenerDeFragment listenerDelFragment;
     private Pelicula peliculaSeleccionada;
     private View view;
-    private String key;
+    private String key, direc;
     private ControllerPelicula peliculaController;
 
     @Override
@@ -66,10 +66,12 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
     public void encontrarVariables(){
         textViewTitulo = view.findViewById(R.id.fragment_detalle_TituloPelicula);
         textViewSinopsis = view.findViewById(R.id.fragment_detalle_DescripcionPelicula);
+        textViewDirector = view.findViewById(R.id.Fragment_TextView_Director);
         imagenPelicula = view.findViewById(R.id.detalle_peliculas_imageview);
         botonTrailer = view.findViewById(R.id.detalle_peliculas_boton_trailer);
         posterPelicula = view.findViewById(R.id.poster_detalle_pelicula);
         recyclerView = view.findViewById(R.id.fragment_famoso_recycler);
+
     }
 
     public void cargarVariables(){
@@ -79,6 +81,17 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
                 .error(R.drawable.logomuvi).into(posterPelicula);
         textViewTitulo.setText(peliculaSeleccionada.getTitulo());
         textViewSinopsis.setText(peliculaSeleccionada.getSinopsis());
+        peliculaController.traerCredits(new ResultListener<Credits>() {
+            @Override
+            public void finish(Credits result) {
+                if (result != null) {
+                    direc = result.getCrew().get(0).getNombre();
+                } else {
+                    direc = "Unknown";
+                }
+                textViewDirector.setText(direc);
+            }
+        }, peliculaSeleccionada.getId());
         botonTrailer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
