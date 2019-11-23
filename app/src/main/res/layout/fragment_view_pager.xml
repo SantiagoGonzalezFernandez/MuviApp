@@ -5,10 +5,7 @@
     android:layout_height="wrap_content"
     tools:context=".view.FragmentHome">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbarAlwaysDrawHorizontalTrack="true">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -82,5 +79,4 @@
                 android:background="@color/colorAccent"
                 android:layout_marginLeft="15dp" />
         </RelativeLayout>
-    </ScrollView>
 </FrameLayout>

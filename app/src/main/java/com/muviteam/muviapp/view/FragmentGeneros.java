@@ -38,6 +38,7 @@ public class FragmentGeneros extends Fragment {
 
         encontrarVariables();
 
+
         return view;
     }
 

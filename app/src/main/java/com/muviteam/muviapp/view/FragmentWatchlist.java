@@ -14,7 +14,7 @@ import com.muviteam.muviapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentLista extends Fragment {
+public class FragmentWatchlist extends Fragment {
 
 
 
@@ -22,7 +22,7 @@ public class FragmentLista extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lista, container, false);
+        return inflater.inflate(R.layout.fragment_watchlist, container, false);
     }
 
 }

@@ -22,7 +22,7 @@ import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.Pelicula;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
-        ,FragmentHome.ListenerDeFragment{
+        ,FragmentHome.ListenerDeFragment, FragmentViewPager.ListenerDeFragment{
 
     private Toolbar myToolbar;
     private ArrayAdapter<String> myArrayAdapterString;

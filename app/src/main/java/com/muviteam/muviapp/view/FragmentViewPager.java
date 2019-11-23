@@ -1,8 +1,10 @@
 package com.muviteam.muviapp.view;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,10 +20,13 @@ import com.muviteam.muviapp.model.Credits;
 import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.utils.ResultListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentViewPager extends Fragment {
+public class FragmentViewPager extends Fragment implements AdapterPelicula.ListenerDelAdapter{
 
     public static final String CLAVE_PELICULA = "clavePelicula";
 
@@ -30,11 +35,14 @@ public class FragmentViewPager extends Fragment {
     private View view;
     private Pelicula pelicula;
     private String direc;
+    private ListenerDeFragment listenerDelFragment;
 
-    public static FragmentViewPager dameUnFragment(Pelicula pelicula){
+
+
+    public static FragmentViewPager dameUnFragment(Pelicula pelicula) {
         FragmentViewPager fragmentViewPager = new FragmentViewPager();
         Bundle bundle = new Bundle();
-        bundle.putSerializable(CLAVE_PELICULA,pelicula);
+        bundle.putSerializable(CLAVE_PELICULA, pelicula);
         fragmentViewPager.setArguments(bundle);
         return fragmentViewPager;
     }
@@ -48,17 +56,23 @@ public class FragmentViewPager extends Fragment {
         Bundle bundle = getArguments();
         pelicula = (Pelicula) bundle.getSerializable(CLAVE_PELICULA);
         cargarPelicula();
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listenerDelFragment.recibirPelicula(pelicula);
+            }
+        });
         return view;
     }
 
-    public void buscarVariables(){
+    public void buscarVariables() {
         titulo = view.findViewById(R.id.FragmentViewPager_TextView_NombrePelicula);
         imagenFondo = view.findViewById(R.id.FragmentViewPager_ImageView_FondoPelicula);
         imagenPoster = view.findViewById(R.id.FragmentViewPager_ImageView_PosterPelicula);
         director = view.findViewById(R.id.Fragment_TextView_Director);
     }
 
-    public void cargarPelicula(){
+    public void cargarPelicula() {
         titulo.setText(pelicula.getTitulo());
         Glide.with(getContext())
                 .load(pelicula.generaURLImagencelda())
@@ -83,4 +97,20 @@ public class FragmentViewPager extends Fragment {
             }
         }, pelicula.getId());
     }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        listenerDelFragment = (ListenerDeFragment) context;
+    }
+
+    public interface ListenerDeFragment {
+        public void recibirPelicula(Pelicula pelicula);
+    }
+
+    @Override
+    public void informarPelicula(Pelicula pelicula) {
+        listenerDelFragment.recibirPelicula(pelicula);
+    }
 }
+
