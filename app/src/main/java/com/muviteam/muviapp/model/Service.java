@@ -36,5 +36,9 @@ public interface Service {
     Call<ContainerPelicula> traerPeliculasPopulares(@Query("api_key") String apiKey,
                                                     @Query("language") String lenguaje);
 
+    @GET("movie/{movie_id}/similar")
+    Call<ContainerPelicula> traerSimilares(@Path("movie_id") Integer movieId,
+                                           @Query("api_key") String apiKey);
+
 
 }

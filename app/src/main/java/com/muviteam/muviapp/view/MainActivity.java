@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ArrayAdapter<String> myArrayAdapterString;
     private DrawerLayout myDrawerLayout;
     private NavigationView myNavigationView;
+    private ToolbarFragment toolbarFragment;
+    private Fragment currentFragment;
 
 
     @Override
@@ -36,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         encuentroVariablesPorId();
         creoElAppBar();
-        pegarFragment(new ToolbarFragment());
+        toolbarFragment = new ToolbarFragment();
+        pegarFragment(toolbarFragment);
 
     }
 
@@ -106,13 +110,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        //menuitem es el elemento seleccionado
         Integer integerId = menuItem.getItemId();
-        //uso un switch para ponerle un comportamiento distinto a cada boton
         switch (integerId) {
             case R.id.MenuPrincipal_Item_Home:
                 Toast.makeText(this, "Volviendo al Home", Toast.LENGTH_LONG).show();
-                
+                if(currentFragment != null){
+                getSupportFragmentManager().beginTransaction().remove(currentFragment).commit();
+            }
+
                 break;
             case R.id.MenuPrincipal_Item_Configuracion:
                 Toast.makeText(this, "Entrando a configuracion", Toast.LENGTH_LONG).show();
@@ -140,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Bundle bundle = new Bundle();
         bundle.putSerializable(fragment_detallePelicula.CLAVE_PELICULA, pelicula);
         fragment_detallePelicula.setArguments(bundle);
+        currentFragment = fragment_detallePelicula;
         pegarFragment(fragment_detallePelicula);
 
     }
@@ -147,5 +153,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void recibirFamoso(Famoso famoso) {
 
+    }
+
+    public void showHideFragment(final Fragment fragment){
+        FragmentTransaction fragTransaction = getSupportFragmentManager().beginTransaction();
+        fragTransaction.setCustomAnimations(android.R.animator.fade_in,
+                android.R.animator.fade_out);
+        if (fragment.isHidden()) {
+            fragTransaction.show(fragment);
+        } else {
+            fragTransaction.hide(fragment);
+
+        }
+        fragTransaction.commit();
     }
 }

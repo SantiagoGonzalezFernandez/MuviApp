@@ -126,4 +126,18 @@ public class PeliculaDao extends PeliculaRetrofitDao {
             }
         });
     }
+
+    public void traerSimilares(final ResultListener<ContainerPelicula> resultListenerController,Integer movieId){
+        Call<ContainerPelicula> call = peliculasService.traerSimilares(movieId, API_KEY);
+        call.enqueue(new Callback<ContainerPelicula>() {
+            @Override
+            public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {
+            }
+
+            @Override
+            public void onFailure(Call<ContainerPelicula> call, Throwable t) {
+
+            }
+        });
+    }
 }
