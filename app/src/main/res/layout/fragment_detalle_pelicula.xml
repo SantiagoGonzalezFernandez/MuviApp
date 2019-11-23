@@ -37,13 +37,6 @@
                 android:layout_alignBottom="@id/FragmentViewPager_ViewPager_Contenedor"
                 />
 
-            <Button
-                android:id="@+id/detalle_peliculas_boton_trailer"
-                android:layout_width="match_parent"
-                android:layout_height="280dp"
-                android:layout_marginTop="270dp"
-                android:drawableTop="@drawable/ic_play_circle_outline_black_24dp"
-                />
 
 
             <TextView
@@ -81,12 +74,14 @@
                 android:background="@color/colorAccent"
                 android:layout_marginLeft="15dp" />
 
-            <VideoView
-                android:id="@+id/trailer_detalle_pelicula"
-                android:layout_width="match_parent"
-                android:layout_height="270dp"
-                android:layout_below="@id/Fragment_TextView_Director"
+            <Button
+                android:id="@+id/detalle_peliculas_boton_trailer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="270dp"
+                android:drawableTop="@drawable/ic_play_circle_outline_black_24dp"
                 />
+
 
             <TextView
                 android:id="@+id/reparto_detalle_pelicula"
@@ -98,7 +93,7 @@
                 android:textSize="20sp"
                 android:textStyle="normal"
                 android:textAlignment="center"
-                android:layout_below="@id/trailer_detalle_pelicula"/>
+                android:layout_below="@id/detalle_peliculas_boton_trailer"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/fragment_famoso_recycler"
@@ -123,7 +118,31 @@
                 android:textStyle="normal"
                 android:layout_below="@id/fragment_famoso_recycler"
                 />
+
+            <TextView
+                android:id="@+id/similares_detalle_pelicula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Peliculas Similares"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textAlignment="center"
+                android:layout_below="@id/fragment_detalle_DescripcionPelicula"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_similares_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:scrollbars="horizontal"
+                android:layout_below="@id/similares_detalle_pelicula">
+
+            </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>
+
     </ScrollView>
 
 </FrameLayout>

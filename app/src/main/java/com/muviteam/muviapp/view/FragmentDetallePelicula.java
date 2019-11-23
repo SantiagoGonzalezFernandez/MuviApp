@@ -24,18 +24,22 @@ import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.model.Videos;
 import com.muviteam.muviapp.utils.ResultListener;
 
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.ListenerDelAdapter{
+public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.ListenerDelAdapter,
+        AdapterPelicula.ListenerDelAdapter{
 
     public static final String CLAVE_PELICULA = "clavePelicula";
 
-    private RecyclerView recyclerView;
+    private RecyclerView recyclerView, recyclerSimilares;
     private TextView textViewTitulo, textViewSinopsis, textViewDirector;
     private Button botonTrailer;
     private ImageView imagenPelicula, posterPelicula;
     private AdapterFamoso adapterFamoso;
+    private AdapterPelicula adapterPelicula;
     private ListenerDeFragment listenerDelFragment;
     private Pelicula peliculaSeleccionada;
     private View view;
@@ -49,11 +53,14 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         encontrarVariables();
         peliculaSeleccionada = (Pelicula) getArguments().getSerializable(CLAVE_PELICULA);
         adapterFamoso = new AdapterFamoso(this);
+        adapterPelicula = new AdapterPelicula(this);
         peliculaController = new ControllerPelicula();
         cargarVariables();
         traerLaLista();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),recyclerView.HORIZONTAL,false));
         recyclerView.setAdapter(adapterFamoso);
+        recyclerSimilares.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+        recyclerSimilares.setAdapter(adapterPelicula);
         return view;
     }
 
@@ -71,7 +78,7 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         botonTrailer = view.findViewById(R.id.detalle_peliculas_boton_trailer);
         posterPelicula = view.findViewById(R.id.poster_detalle_pelicula);
         recyclerView = view.findViewById(R.id.fragment_famoso_recycler);
-
+        recyclerSimilares = view.findViewById(R.id.fragment_similares_recycler);
     }
 
     public void cargarVariables(){
@@ -114,6 +121,17 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
                 adapterFamoso.setFamosoList(result.getCast());
             }
         });
+        peliculaController.traerPeliculaSimilar(peliculaSeleccionada.getId(), new ResultListener<List<Pelicula>>() {
+            @Override
+            public void finish(List<Pelicula> result) {
+                adapterPelicula.setPeliculaList(result);
+            }
+        });
+    }
+
+    @Override
+    public void informarPelicula(Pelicula pelicula) {
+
     }
 
     public interface ListenerDeFragment{
@@ -127,4 +145,5 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
 }

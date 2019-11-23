@@ -64,6 +64,15 @@ public class ControllerPelicula {
         }, famosoId);
     }
 
+    public void traerPeliculaSimilar(Integer movieId, final ResultListener<List<Pelicula>> listenerDeLaVista){
+        peliculaDAO.traerSimilares(new ResultListener<List<Pelicula>>() {
+                    @Override
+                    public void finish(List<Pelicula> result) {
+                        listenerDeLaVista.finish(result);
+                    }
+                }, movieId);
+    }
+
     public void traerListaPeliculas(final ResultListener<List<Pelicula>> listenerDeLaVista) {
         peliculaDAO.traerListaDeViewPager(new ResultListener<List<Pelicula>>() {
             @Override
