@@ -170,10 +170,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    @Override
+@Override
     public void recibirFamoso(Famoso famoso) {
+        Toast.makeText(this, famoso.getNombre(), Toast.LENGTH_SHORT).show();
+        FragmentDetalleFamoso fragment_detalleFamoso = new FragmentDetalleFamoso();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(fragment_detalleFamoso.CLAVE_FAMOSO, famoso);
+        fragment_detalleFamoso.setArguments(bundle);
+        currentFragment = fragment_detalleFamoso;
+        pegarFragment(fragment_detalleFamoso);
 
     }
+
 
     public void showHideFragment(final Fragment fragment){
         FragmentTransaction fragTransaction = getSupportFragmentManager().beginTransaction();
