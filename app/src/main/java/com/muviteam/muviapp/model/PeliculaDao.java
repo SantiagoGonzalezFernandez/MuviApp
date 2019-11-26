@@ -142,4 +142,21 @@ public class PeliculaDao extends PeliculaRetrofitDao {
             }
         });
     }
+
+    public void traerPeliculasPorBusqueda(final ResultListener<List<Pelicula>> resultListenerController, String movieBusqueda){
+        Call<ContainerPelicula> call = peliculasService.traerPeliculaPorBusqueda(movieBusqueda, API_KEY);
+
+        call.enqueue(new Callback<ContainerPelicula>() {
+            @Override
+            public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {
+               ContainerPelicula containerPelicula = response.body();
+                resultListenerController.finish(containerPelicula.getResults());
+            }
+
+            @Override
+            public void onFailure(Call<ContainerPelicula> call, Throwable t) {
+                Log.d("ewfwq","dwsfaw");
+            }
+        });
+    }
 }
