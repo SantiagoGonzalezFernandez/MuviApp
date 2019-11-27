@@ -78,7 +78,7 @@
                 android:id="@+id/detalle_peliculas_boton_trailer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="270dp"
+                android:layout_marginTop="280dp"
                 android:drawableTop="@drawable/ic_play_circle_outline_black_24dp"
                 />
 

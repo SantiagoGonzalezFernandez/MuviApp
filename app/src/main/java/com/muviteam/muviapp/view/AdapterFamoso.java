@@ -23,6 +23,8 @@ public class AdapterFamoso extends RecyclerView.Adapter<AdapterFamoso.ViewHolder
     private ListenerDelAdapter listenerDelAdapter;
 
 
+    public AdapterFamoso(List<Famoso> famosoList) { this.famosoList = famosoList;}
+
     public AdapterFamoso(ListenerDelAdapter listenerDelAdapter){
         famosoList = new ArrayList<>();
         this.listenerDelAdapter = listenerDelAdapter;
@@ -38,7 +40,7 @@ public class AdapterFamoso extends RecyclerView.Adapter<AdapterFamoso.ViewHolder
     public AdapterFamoso.ViewHolderFamoso onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View vistaDeLaCelda = inflater.inflate(R.layout.celda_famoso,parent,false);
-        return new AdapterFamoso.ViewHolderFamoso(vistaDeLaCelda);
+        return new ViewHolderFamoso(vistaDeLaCelda);
     }
 
     @Override
@@ -48,8 +50,7 @@ public class AdapterFamoso extends RecyclerView.Adapter<AdapterFamoso.ViewHolder
     }
 
     @Override
-    public int getItemCount() {
-        return famosoList.size();}
+    public int getItemCount() {return famosoList.size();}
 
     public class ViewHolderFamoso extends RecyclerView.ViewHolder{
         private TextView textViewNombre;

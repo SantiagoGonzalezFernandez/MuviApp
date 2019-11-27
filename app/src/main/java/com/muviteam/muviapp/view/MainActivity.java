@@ -29,7 +29,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterPelicula.ListenerDelAdapter
         ,FragmentHome.ListenerDeFragment, FragmentViewPager.ListenerDeFragment, FragmentDetallePelicula.ListenerDeFragment,
-        AdapterFamoso.ListenerDelAdapter {
+        AdapterFamoso.ListenerDelAdapter, FragmentDetalleFamoso.ListenerDeFragment {
 
     private Toolbar myToolbar;
     private ArrayAdapter<String> myArrayAdapterString;
