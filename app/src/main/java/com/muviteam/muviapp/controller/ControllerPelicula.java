@@ -101,4 +101,13 @@ public class ControllerPelicula {
         }, movieId);
     }
 
+    public void traerPeliculasPorBusqueda(String movieBusqueda, final ResultListener<List<Pelicula>> listenerDeLaVista){
+        peliculaDAO.traerPeliculasPorBusqueda(new ResultListener<List<Pelicula>>(){
+                    @Override
+                    public void finish(List<Pelicula> result) {
+                        listenerDeLaVista.finish(result);
+                    }
+                }, movieBusqueda);
+    }
+
 }

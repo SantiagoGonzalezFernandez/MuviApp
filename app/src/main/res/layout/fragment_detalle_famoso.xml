@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.FragmentDetalleFamoso"
+    android:background="@color/colorPrimary2">
+
+
+    <ImageView
+        android:id="@+id/Fragment_ImageView_Famoso"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        />
+
+
+    <TextView
+        android:id="@+id/Fragment_TextView_NombreFamoso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOMBRE:"
+        android:layout_below="@id/Fragment_ImageView_Famoso"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <TextView
+        android:id="@+id/Fragment_TextView_ApellidoFamoso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="APELLIDO:"
+        android:layout_below="@id/Fragment_TextView_NombreFamoso"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <TextView
+        android:id="@+id/Fragment_TextView_EdadFamoso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EDAD:"
+        android:layout_below="@id/Fragment_TextView_ApellidoFamoso"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <TextView
+        android:id="@+id/Fragment_TextView_BioFamoso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BIO:"
+        android:layout_below="@id/Fragment_TextView_EdadFamoso"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="APARECE EN"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+
+    <!--aca va un recycler-->
+    
+</RelativeLayout>
