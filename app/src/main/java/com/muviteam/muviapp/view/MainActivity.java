@@ -25,15 +25,11 @@ import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.utils.ResultListener;
 
-<<<<<<< HEAD
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
-        ,FragmentHome.ListenerDeFragment, FragmentViewPager.ListenerDeFragment,FragmentDetallePelicula.ListenerDeFragment{
-=======
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterPelicula.ListenerDelAdapter
-        ,FragmentHome.ListenerDeFragment, FragmentViewPager.ListenerDeFragment{
->>>>>>> master
+        ,FragmentHome.ListenerDeFragment, FragmentViewPager.ListenerDeFragment, FragmentDetallePelicula.ListenerDeFragment,
+        AdapterFamoso.ListenerDelAdapter {
 
     private Toolbar myToolbar;
     private ArrayAdapter<String> myArrayAdapterString;
@@ -60,14 +56,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private void encuentroVariablesPorId(){
+    private void encuentroVariablesPorId() {
         myDrawerLayout = findViewById(R.id.MainActivity_DrawerLayout_Contenedor);
         myNavigationView = findViewById(R.id.MainActivity_NavigationView);
         myToolbar = findViewById(R.id.MainActivity_Include_Toolbar);
     }
 
 
-    private void creoElAppBar(){
+    private void creoElAppBar() {
         setSupportActionBar(myToolbar);
 
         myArrayAdapterString = new ArrayAdapter<String>(MainActivity.this,
@@ -138,8 +134,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (integerId) {
             case R.id.MenuPrincipal_Item_Home:
                 Toast.makeText(this, "Volviendo al Home", Toast.LENGTH_LONG).show();
-                if(currentFragment != null){
-                getSupportFragmentManager().beginTransaction().remove(currentFragment).commit(); }
+                if (currentFragment != null) {
+                    getSupportFragmentManager().beginTransaction().remove(currentFragment).commit();
+                }
                 break;
             case R.id.MenuPrincipal_Item_Configuracion:
                 Toast.makeText(this, "Entrando a configuracion", Toast.LENGTH_LONG).show();
@@ -147,18 +144,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.MenuPrincipal_Item_CerrarSesion:
                 Toast.makeText(this, "Hasta Luego (Cerrar sesion)", Toast.LENGTH_LONG).show();
-                if(currentFragment != null){
-                    getSupportFragmentManager().beginTransaction().remove(currentFragment).commit(); }
+                if (currentFragment != null) {
+                    getSupportFragmentManager().beginTransaction().remove(currentFragment).commit();
+                }
                 break;
         }
         myDrawerLayout.closeDrawers();
         return true;
     }
 
-    private void pegarFragment(Fragment fragment){
+    private void pegarFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.MainActivity_FrameLayout_ContenedorDeFragments,fragment)
+                .add(R.id.MainActivity_FrameLayout_ContenedorDeFragments, fragment)
                 .addToBackStack(null)
                 .commit();
     }
@@ -175,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-@Override
+    @Override
     public void recibirFamoso(Famoso famoso) {
         Toast.makeText(this, famoso.getNombre(), Toast.LENGTH_SHORT).show();
         FragmentDetalleFamoso fragment_detalleFamoso = new FragmentDetalleFamoso();
@@ -188,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    public void showHideFragment(final Fragment fragment){
+    public void showHideFragment(final Fragment fragment) {
         FragmentTransaction fragTransaction = getSupportFragmentManager().beginTransaction();
         fragTransaction.setCustomAnimations(android.R.animator.fade_in,
                 android.R.animator.fade_out);
@@ -201,9 +199,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-<<<<<<< HEAD
     public void informarFamoso(Famoso famoso) {
-
+        Toast.makeText(this, famoso.getNombre(), Toast.LENGTH_SHORT).show();
+        FragmentDetalleFamoso fragmentDetalleFamoso = new FragmentDetalleFamoso();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(fragmentDetalleFamoso.CLAVE_FAMOSO, famoso);
+        fragmentDetalleFamoso.setArguments(bundle);
+        currentFragment = fragmentDetalleFamoso;
+        pegarFragment(fragmentDetalleFamoso);
     }
 
     @Override
@@ -215,9 +218,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragment_detallePelicula.setArguments(bundle);
         currentFragment = fragment_detallePelicula;
         pegarFragment(fragment_detallePelicula);
-=======
-    public void informarPelicula(Pelicula pelicula) {
->>>>>>> master
-
     }
 }

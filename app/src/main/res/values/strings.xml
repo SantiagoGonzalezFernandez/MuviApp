@@ -7,6 +7,8 @@
 
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
+    <string name="facebook_app_id">626872084515810</string>
+    <string name="fb_login_protocol_scheme">fb711374606035243</string>
 
     <string-array name="peliculas_array"></string-array> <!--Esta linea tiene que ser borrada o modificada en algun momento-->
 

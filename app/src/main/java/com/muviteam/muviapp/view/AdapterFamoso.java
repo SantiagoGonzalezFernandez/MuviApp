@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.muviteam.muviapp.R;
 import com.muviteam.muviapp.model.Famoso;
+import com.muviteam.muviapp.model.Pelicula;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +58,13 @@ public class AdapterFamoso extends RecyclerView.Adapter<AdapterFamoso.ViewHolder
             super(itemView);
             imageViewImagenFamoso = itemView.findViewById(R.id.CeldaFamoso_ImageView_ImagenFamoso);
             textViewNombre = itemView.findViewById(R.id.CeldaFamoso_TextView_NombreFamoso);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Famoso famosoSeleccionado = famosoList.get(getAdapterPosition());
+                    listenerDelAdapter.informarFamoso(famosoSeleccionado);
+                }
+            });
 
         }
         public void cargarFamoso(Famoso famoso){

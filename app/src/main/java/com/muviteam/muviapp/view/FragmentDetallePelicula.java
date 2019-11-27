@@ -66,10 +66,6 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         return view;
     }
 
-    @Override
-    public void informarFamoso(Famoso famoso) {
-        listenerDelFragment.informarFamoso(famoso);
-    }
 
 
     public void encontrarVariables(){
@@ -129,6 +125,11 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
                 adapterPelicula.setPeliculaList(result);
             }
         });
+    }
+
+    @Override
+    public void informarFamoso(Famoso famoso) {
+        listenerDelFragment.informarFamoso(famoso);
     }
 
     @Override

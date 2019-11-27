@@ -14,33 +14,29 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.muviteam.muviapp.R;
 import com.muviteam.muviapp.model.Famoso;
+import com.muviteam.muviapp.model.Pelicula;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-    public class FragmentDetalleFamoso extends Fragment {
+    public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.ListenerDelAdapter,
+    AdapterPelicula.ListenerDelAdapter{
 
 
     public static final String CLAVE_FAMOSO = "claveFamoso";
 
-    private TextView textViewNombreFamoso, textViewApellidoFamoso, textViewEdadFamoso, textViewBioFamoso;
+    private TextView textViewNombreFamoso, textViewEdadFamoso, textViewBioFamoso;
     private ImageView imagenFamoso;
     private AdapterFamoso adapterFamoso;
     private View view;
     private Famoso famosoSeleccionado;
-
-
-    public FragmentDetalleFamoso() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_detalle_famoso, container, false);
         encontrarVariables();
-        adapterFamoso = new AdapterFamoso((AdapterFamoso.ListenerDelAdapter) this);
+        adapterFamoso = new AdapterFamoso(this);
         cargarVariables();
         famosoSeleccionado = (Famoso) getArguments().getSerializable(CLAVE_FAMOSO);
         return view;
@@ -50,7 +46,6 @@ import com.muviteam.muviapp.model.Famoso;
 
     public void encontrarVariables(){
         textViewNombreFamoso = view.findViewById(R.id.Fragment_TextView_NombreFamoso);
-        textViewApellidoFamoso = view.findViewById(R.id.Fragment_TextView_ApellidoFamoso);
         textViewEdadFamoso = view.findViewById(R.id.Fragment_TextView_EdadFamoso);
         imagenFamoso = view.findViewById(R.id.Fragment_ImageView_Famoso);
     }
@@ -64,4 +59,13 @@ import com.muviteam.muviapp.model.Famoso;
 
     }
 
+    @Override
+    public void informarFamoso(Famoso famoso) {
+
+    }
+
+    @Override
+    public void informarPelicula(Pelicula pelicula) {
+
+    }
 }
