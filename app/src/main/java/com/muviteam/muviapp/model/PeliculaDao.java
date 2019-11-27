@@ -52,7 +52,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public  void traerCredits(final ResultListener<Credits> resultListenerController,Integer movieId){
-        Call<Credits> creditsCall = peliculasService.traerCredits(movieId,API_KEY);
+        Call<Credits> creditsCall = peliculasService.traerCredits(movieId,LANGUAGE,API_KEY);
         creditsCall.enqueue(new Callback<Credits>() {
             @Override
             public void onResponse(Call<Credits> call, Response<Credits> response) {
@@ -97,7 +97,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerTrailer(final ResultListener<Videos> resultListenerController, Integer movieId){
-        Call<Videos> videosCall = peliculasService.traerVideos(movieId, API_KEY);
+        Call<Videos> videosCall = peliculasService.traerVideos(movieId,LANGUAGE, API_KEY);
         videosCall.enqueue(new Callback<Videos>() {
             @Override
             public void onResponse(Call<Videos> call, Response<Videos> response) {
@@ -112,7 +112,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerPeliculaDeFamoso(final ResultListener<List<Pelicula>> listResultListener, Integer famosoId) {
-        Call<ContainerPelicula> call = peliculasService.traerPeliculasDeFamoso(API_KEY,famosoId);
+        Call<ContainerPelicula> call = peliculasService.traerPeliculasDeFamoso(API_KEY,LANGUAGE,famosoId);
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override
             public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {
@@ -128,7 +128,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerSimilares(final ResultListener<List<Pelicula>> resultListenerController,Integer movieId){
-        Call<ContainerPelicula> call = peliculasService.traerSimilares(movieId, API_KEY);
+        Call<ContainerPelicula> call = peliculasService.traerSimilares(movieId,LANGUAGE, API_KEY);
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override
             public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {
@@ -144,7 +144,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerPeliculasPorBusqueda(final ResultListener<List<Pelicula>> resultListenerController, String movieBusqueda){
-        Call<ContainerPelicula> call = peliculasService.traerPeliculaPorBusqueda(movieBusqueda, API_KEY);
+        Call<ContainerPelicula> call = peliculasService.traerPeliculaPorBusqueda(movieBusqueda,LANGUAGE, API_KEY);
 
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override

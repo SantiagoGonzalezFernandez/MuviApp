@@ -12,20 +12,26 @@ public interface Service {
                                           @Query("language") String lenguaje);
 
     @GET("movie/{movie_id}/credits")
-    Call<Credits> traerCredits(@Path("movie_id") Integer movieId, @Query("api_key") String apiKey);
+    Call<Credits> traerCredits(@Path("movie_id") Integer movieId,
+                               @Query("language") String lenguaje,
+                               @Query("api_key") String apiKey);
 
     @GET("movie/{movie_id}/videos")
-    Call<Videos> traerVideos(@Path("movie_id") Integer movieId, @Query("api_key") String apiKey);
+    Call<Videos> traerVideos(@Path("movie_id") Integer movieId,
+                             @Query("language") String lenguaje,
+                             @Query("api_key") String apiKey);
 
     @GET("movie/upcoming")
     Call<ContainerPelicula> traerUpcoming(@Query("api_key") String apiKey,
                                           @Query("language") String lenguaje);
 
     @GET("person/popular")
-    Call<ContainerFamoso> traerPersona(@Query("api_key") String apiKey);
+    Call<ContainerFamoso> traerPersona(@Query("api_key") String apiKey,
+                                       @Query("language") String lenguaje);
 
     @GET("discover/movie")
     Call<ContainerPelicula> traerPeliculasDeFamoso(@Query("api_key") String apiKey,
+                                                   @Query("language") String lenguaje,
                                                    @Query("with_people") Integer famosoId);
 
     @GET("movie/now_playing")
@@ -38,10 +44,12 @@ public interface Service {
 
     @GET("movie/{movie_id}/similar")
     Call<ContainerPelicula> traerSimilares(@Path("movie_id") Integer movieId,
+                                           @Query("language") String lenguaje,
                                            @Query("api_key") String apiKey);
 
     @GET("search/movie")
     Call<ContainerPelicula> traerPeliculaPorBusqueda(@Query("api_key") String apiKey,
-                                                   @Query("movie") String movieBusqueda);
+                                                     @Query("language") String lenguaje,
+                                                     @Query("movie") String movieBusqueda);
 
 }

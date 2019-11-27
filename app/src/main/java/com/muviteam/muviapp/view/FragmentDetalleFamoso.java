@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,9 @@ import com.muviteam.muviapp.R;
 import com.muviteam.muviapp.controller.ControllerPelicula;
 import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.Pelicula;
+import com.muviteam.muviapp.utils.ResultListener;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,8 +37,10 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
     private AdapterFamoso adapterFamoso;
     private View view;
     private Famoso famosoSeleccionado;
+    private RecyclerView contenedorPeliculas;
     private ControllerPelicula peliculaController;
     private ListenerDeFragment listenerDelFragment;
+    private AdapterPelicula adapterPelicula;
 
 
     @Override
@@ -43,8 +50,12 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
         encontrarVariables();
         famosoSeleccionado = (Famoso) getArguments().getSerializable(CLAVE_FAMOSO);
         adapterFamoso = new AdapterFamoso(this);
+        adapterPelicula = new AdapterPelicula(this);
         peliculaController = new ControllerPelicula();
         cargarVariables();
+        setearRecycler();
+        contenedorPeliculas.setLayoutManager(new LinearLayoutManager(getContext(), contenedorPeliculas.HORIZONTAL, false));
+        contenedorPeliculas.setAdapter(adapterPelicula);
         return view;
     }
 
@@ -53,6 +64,7 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
         textViewNombreFamoso = view.findViewById(R.id.Fragment_TextView_NombreFamoso);
         textViewEdadFamoso = view.findViewById(R.id.Fragment_TextView_EdadFamoso);
         imagenFamoso = view.findViewById(R.id.Fragment_ImageView_Famoso);
+        contenedorPeliculas = view.findViewById(R.id.Fragment_Recicler_contenedorDeApareceEn);
     }
 
     public void cargarVariables() {
@@ -60,7 +72,15 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
                 .error(R.drawable.logomuvi).into(imagenFamoso);
         textViewNombreFamoso.setText(famosoSeleccionado.getNombre());
         textViewEdadFamoso.setText(famosoSeleccionado.getNacimiento());
+    }
 
+    public void setearRecycler(){
+        peliculaController.traePeliculaDeFamoso(famosoSeleccionado.getId(), new ResultListener<List<Pelicula>>() {
+            @Override
+            public void finish(List<Pelicula> result) {
+                adapterPelicula.setPeliculaList(result);
+            }
+        });
     }
 
     @Override
