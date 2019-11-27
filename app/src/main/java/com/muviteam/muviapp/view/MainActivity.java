@@ -22,7 +22,7 @@ import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.Pelicula;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
-        ,FragmentHome.ListenerDeFragment, FragmentViewPager.ListenerDeFragment{
+        ,FragmentHome.ListenerDeFragment, FragmentViewPager.ListenerDeFragment,FragmentDetallePelicula.ListenerDeFragment{
 
     private Toolbar myToolbar;
     private ArrayAdapter<String> myArrayAdapterString;
@@ -166,5 +166,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
         fragTransaction.commit();
+    }
+
+    @Override
+    public void informarFamoso(Famoso famoso) {
+
+    }
+
+    @Override
+    public void informarPelicula(Pelicula pelicula) {
+        Toast.makeText(this, pelicula.getTitulo(), Toast.LENGTH_SHORT).show();
+        FragmentDetallePelicula fragment_detallePelicula = new FragmentDetallePelicula();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(fragment_detallePelicula.CLAVE_PELICULA, pelicula);
+        fragment_detallePelicula.setArguments(bundle);
+        currentFragment = fragment_detallePelicula;
+        pegarFragment(fragment_detallePelicula);
+
     }
 }
