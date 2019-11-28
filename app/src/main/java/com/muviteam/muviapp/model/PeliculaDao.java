@@ -112,7 +112,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerPeliculaDeFamoso(final ResultListener<List<Pelicula>> listResultListener, Integer famosoId) {
-        Call<ContainerPelicula> call = peliculasService.traerPeliculasDeFamoso(famosoId, API_KEY);
+        Call<ContainerPelicula> call = peliculasService.traerPeliculasDeFamoso(API_KEY,LANGUAGE,famosoId);
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override
             public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {
@@ -156,6 +156,22 @@ public class PeliculaDao extends PeliculaRetrofitDao {
             @Override
             public void onFailure(Call<ContainerPelicula> call, Throwable t) {
                 Log.d("ewfwq","dwsfaw");
+            }
+        });
+    }
+
+    public void traerPeliculasPorGenero(final ResultListener<List<Pelicula>> listResultListener, Integer genero) {
+        Call<ContainerPelicula> call = peliculasService.traerPeliculasPorGenero(genero, API_KEY);
+        call.enqueue(new Callback<ContainerPelicula>() {
+            @Override
+            public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {
+                ContainerPelicula containerPelicula = response.body();
+                listResultListener.finish(containerPelicula.getResults());
+            }
+
+            @Override
+            public void onFailure(Call<ContainerPelicula> call, Throwable t) {
+
             }
         });
     }

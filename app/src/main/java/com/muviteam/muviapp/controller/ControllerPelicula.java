@@ -110,4 +110,14 @@ public class ControllerPelicula {
                 }, movieBusqueda);
     }
 
+    public void traerPeliculaPorGenero(Integer genero, final ResultListener<List<Pelicula>> listenerDeLaVista) {
+        peliculaDAO.traerPeliculasPorGenero(new ResultListener<List<Pelicula>>() {
+            @Override
+            public void finish(List<Pelicula> result) {
+                listenerDeLaVista.finish(result);
+            }
+        }, genero);
+    }
+
+
 }

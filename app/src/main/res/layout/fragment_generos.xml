@@ -8,6 +8,15 @@
 
     <ScrollView
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/FragmentGeneros_Recyclerview_ContenedorDeGeneros"/>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbarAlwaysDrawHorizontalTrack="true"
         android:layout_marginBottom="10dp">
@@ -15,25 +24,25 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity=""
+            android:layout_gravity="center_horizontal"
+            android:alignmentMode="alignMargins"
+            android:padding="15dp"
             android:columnCount="2"
-            android:rowCount="9"
-            >
-
+            android:rowCount="9">
 
             <ImageView
                 android:id="@+id/boton_genero1"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
-                android:layout_marginStart="15dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="45dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/accion" />
 
 
             <ImageView
                 android:id="@+id/boton_genero2"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/aventura"
@@ -41,68 +50,68 @@
 
             <ImageView
                 android:id="@+id/boton_genero3"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
-                android:layout_marginStart="15dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="45dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/animacion" />
 
 
             <ImageView
                 android:id="@+id/boton_genero4"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/cienciaficcion" />
 
             <ImageView
                 android:id="@+id/boton_genero5"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
-                android:layout_marginStart="15dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="45dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/comedia" />
 
 
             <ImageView
                 android:id="@+id/boton_genero6"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/crimen" />
 
             <ImageView
                 android:id="@+id/boton_genero7"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
-                android:layout_marginStart="15dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="45dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/documental" />
 
 
             <ImageView
                 android:id="@+id/boton_genero8"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/drama" />
 
             <ImageView
                 android:id="@+id/boton_genero9"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
-                android:layout_marginStart="15dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="45dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/familia" />
 
 
             <ImageView
                 android:id="@+id/boton_genero10"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/fantasia" />
@@ -110,16 +119,16 @@
 
             <ImageView
                 android:id="@+id/boton_genero11"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
-                android:layout_marginStart="15dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="45dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/guerra" />
 
             <ImageView
                 android:id="@+id/boton_genero12"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/historia" />
@@ -127,16 +136,16 @@
 
             <ImageView
                 android:id="@+id/boton_genero13"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
-                android:layout_marginStart="15dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="45dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/horror" />
 
             <ImageView
                 android:id="@+id/boton_genero14"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/misterio" />
@@ -144,16 +153,16 @@
 
             <ImageView
                 android:id="@+id/boton_genero15"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
-                android:layout_marginStart="15dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="45dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/musica" />
 
             <ImageView
                 android:id="@+id/boton_genero16"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/peliculasdetv" />
@@ -161,21 +170,21 @@
 
             <ImageView
                 android:id="@+id/boton_genero17"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
-                android:layout_marginStart="15dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="45dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/romance" />
 
             <ImageView
                 android:id="@+id/boton_genero18"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/western" />
-
-
         </GridLayout>
     </ScrollView>
+
+
 </RelativeLayout>

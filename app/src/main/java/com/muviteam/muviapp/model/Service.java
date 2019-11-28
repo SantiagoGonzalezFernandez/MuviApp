@@ -4,6 +4,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.QueryName;
 
 public interface Service {
 
@@ -27,8 +28,9 @@ public interface Service {
     Call<ContainerFamoso> traerPersona(@Query("api_key") String apiKey);
 
     @GET("discover/movie")
-    Call<ContainerPelicula> traerPeliculasDeFamoso(@Query("with_people") Integer famosoId,
-                                                   @Query("api_key") String apiKey);
+    Call<ContainerPelicula> traerPeliculasDeFamoso(@Query("api_key") String apiKey,
+                                                   @Query("language") String lenguaje,
+                                                   @Query("with_people") Integer famosoId);
 
     @GET("movie/now_playing")
     Call<ContainerPelicula> traerPeliculaViewPager(@Query("api_key") String apiKey,
@@ -43,7 +45,11 @@ public interface Service {
                                            @Query("api_key") String apiKey);
 
     @GET("search/movie")
-    Call<ContainerPelicula> traerPeliculaPorBusqueda(@Query("movie") String movieBusqueda,
+    Call<ContainerPelicula> traerPeliculaPorBusqueda(@Path("movie") String movieBusqueda,
                                                      @Query("api_key") String apiKey);
+
+    @GET("discover/movie")
+    Call<ContainerPelicula> traerPeliculasPorGenero(@Path("with_genres") Integer genero,
+                                                   @Query("api_key") String apiKey);
 
 }

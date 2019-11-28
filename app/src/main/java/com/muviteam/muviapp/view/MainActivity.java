@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private AdapterPelicula adapterPelicula;
     private ControllerPelicula controllerPelicula;
     private RecyclerView recyclerView;
+    private SearchView mySearchView;
 
 
     @Override
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MenuItem myMenuItemProfile = menu.findItem(R.id.ToolBarMenu_Item_perfilUser);
 
 
-        SearchView mySearchView = (SearchView) myMenuItemSearch.getActionView();
+        mySearchView = (SearchView) myMenuItemSearch.getActionView();
         mySearchView.setQueryHint("Que Pelicula Buscas?");
 
         mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -117,16 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        /*View vista = myMenuItemProfile.getActionView();
-
-        vista.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Acceso al Perfil del Usuario", Toast.LENGTH_LONG).show();
-            }
-        });*/
-
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override

@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -14,15 +16,23 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.muviteam.muviapp.R;
+import com.muviteam.muviapp.controller.ControllerPelicula;
+import com.muviteam.muviapp.model.Pelicula;
+import com.muviteam.muviapp.utils.ResultListener;
+
+import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentGeneros extends Fragment {
+public class FragmentGeneros extends Fragment implements AdapterPelicula.ListenerDelAdapter{
 
     private ImageView accion, aventura, animacion, cienciaFiccion, comedia, crimen, documental, drama, familia, fantasia, guerra, historia, horror, misterio, musica, peliculasdetv, romance, western;
     private View view;
+    private RecyclerView contenedorGeneros;
+    private ControllerPelicula controllerPelicula;
+    private AdapterPelicula adapterPelicula;
 
 
     public FragmentGeneros() {
@@ -35,14 +45,16 @@ public class FragmentGeneros extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_generos, container, false);
-
+        controllerPelicula = new ControllerPelicula();
+        adapterPelicula = new AdapterPelicula(this);
         encontrarVariables();
-
 
         return view;
     }
 
     public void encontrarVariables() {
+
+        contenedorGeneros = view.findViewById(R.id.FragmentGeneros_Recyclerview_ContenedorDeGeneros);
 
         accion = view.findViewById(R.id.boton_genero1);
         accion.setOnClickListener(new OnClickDeLosBotones());
@@ -116,6 +128,11 @@ public class FragmentGeneros extends Fragment {
 
     }
 
+    @Override
+    public void informarPelicula(Pelicula pelicula) {
+
+    }
+
     private class OnClickDeLosBotones implements View.OnClickListener{
 
         @Override
@@ -123,7 +140,14 @@ public class FragmentGeneros extends Fragment {
             switch (v.getId()) {
                 case R.id.boton_genero1:
                     Toast.makeText(getContext(), "Peliculas de accion", Toast.LENGTH_SHORT).show();
-
+                    controllerPelicula.traerPeliculaPorGenero(28, new ResultListener<List<Pelicula>>() {
+                        @Override
+                        public void finish(List<Pelicula> result) {
+                            adapterPelicula.setPeliculaList(result);
+                        }
+                    });
+                    contenedorGeneros.setLayoutManager(new LinearLayoutManager(getContext(), contenedorGeneros.VERTICAL, false));
+                    contenedorGeneros.setAdapter(adapterPelicula);
                     break;
                 case R.id.boton_genero2:
                     Toast.makeText(getContext(), "Peliculas de aventura", Toast.LENGTH_SHORT).show();
