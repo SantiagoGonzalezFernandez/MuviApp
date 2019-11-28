@@ -49,7 +49,7 @@ public interface Service {
                                                      @Query("api_key") String apiKey);
 
     @GET("discover/movie")
-    Call<ContainerPelicula> traerPeliculasPorGenero(@Path("with_genres") Integer genero,
-                                                   @Query("api_key") String apiKey);
+    Call<ContainerPelicula> traerPeliculasPorGenero(@Query("api_key") String apiKey,
+                                                    @Query("with_genres") Integer genero);
 
 }

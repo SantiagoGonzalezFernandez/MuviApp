@@ -14,6 +14,7 @@ public class Famoso implements Serializable {
     private String biografia;
     @SerializedName("profile_path")
     private String StringImagenDeFamoso;
+    @SerializedName("id")
     private Integer StringId;
 
     public Famoso(String nombre, String biografia, String imagenDeFamoso, Integer id){
