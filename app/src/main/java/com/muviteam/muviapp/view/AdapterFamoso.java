@@ -53,12 +53,14 @@ public class AdapterFamoso extends RecyclerView.Adapter<AdapterFamoso.ViewHolder
     public int getItemCount() {return famosoList.size();}
 
     public class ViewHolderFamoso extends RecyclerView.ViewHolder{
-        private TextView textViewNombre;
+        private TextView textViewNombre, textViewBiografia;
         private ImageView imageViewImagenFamoso;
+
         public ViewHolderFamoso(@NonNull View itemView) {
             super(itemView);
             imageViewImagenFamoso = itemView.findViewById(R.id.CeldaFamoso_ImageView_ImagenFamoso);
             textViewNombre = itemView.findViewById(R.id.CeldaFamoso_TextView_NombreFamoso);
+           // textViewBiografia = itemView.findViewById(R.id.Fragment_TextView_BioFamoso);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -72,6 +74,7 @@ public class AdapterFamoso extends RecyclerView.Adapter<AdapterFamoso.ViewHolder
             Glide.with(imageViewImagenFamoso.getContext()).load(famoso.generaURLImagen()).placeholder(R.drawable.load)
                     .error(R.drawable.logomuvi).into(imageViewImagenFamoso);
             textViewNombre.setText(famoso.getNombre());
+           // textViewBiografia.setText(famoso.getBiografia());
         }
     }
 

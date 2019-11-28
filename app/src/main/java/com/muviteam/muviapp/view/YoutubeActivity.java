@@ -39,6 +39,7 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
 
     private void encontrarVariables(){
         youTubePlayerView = findViewById(R.id.YoutubeActivity_YouTubePlayerView_Trailer);
+
     }
 
     @Override

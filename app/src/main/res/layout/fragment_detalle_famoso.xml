@@ -9,12 +9,13 @@
 
     <ImageView
         android:id="@+id/Fragment_ImageView_Famoso"
-        android:layout_width="190dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/colorAccent"
-        android:padding="5dp" />
+        android:padding="3dp" />
 
 
     <TextView
@@ -44,7 +45,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="350dp"
         android:text="APARECE EN"
-        android:textColor="@color/colorPrimary" />
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="5dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Fragment_Recicler_contenedorDeApareceEn"
@@ -53,4 +56,8 @@
         android:layout_below="@+id/Fragment_TextView_ApareceEn"
         />
 
+<!--<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes-->
 </RelativeLayout>

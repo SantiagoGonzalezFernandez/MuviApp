@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.youtube.player.YouTubePlayerView;
+import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.muviteam.muviapp.R;
 import com.muviteam.muviapp.controller.ControllerPelicula;
 import com.muviteam.muviapp.model.Credits;
