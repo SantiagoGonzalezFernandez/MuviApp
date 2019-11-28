@@ -32,7 +32,7 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
 
     public static final String CLAVE_FAMOSO = "claveFamoso";
 
-    private TextView textViewNombreFamoso, textViewEdadFamoso, textViewBioFamoso;
+    private TextView textViewNombreFamoso, textViewBioFamoso;
     private ImageView imagenFamoso;
     private AdapterFamoso adapterFamoso;
     private View view;
@@ -62,7 +62,7 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
 
     public void encontrarVariables() {
         textViewNombreFamoso = view.findViewById(R.id.Fragment_TextView_NombreFamoso);
-        textViewEdadFamoso = view.findViewById(R.id.Fragment_TextView_EdadFamoso);
+        textViewBioFamoso = view.findViewById(R.id.Fragment_TextView_BioFamoso);
         imagenFamoso = view.findViewById(R.id.Fragment_ImageView_Famoso);
         contenedorPeliculas = view.findViewById(R.id.Fragment_Recicler_contenedorDeApareceEn);
     }
@@ -71,7 +71,7 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
         Glide.with(this).load(famosoSeleccionado.generaURLImagen()).placeholder(R.drawable.load)
                 .error(R.drawable.logomuvi).into(imagenFamoso);
         textViewNombreFamoso.setText(famosoSeleccionado.getNombre());
-        textViewEdadFamoso.setText(famosoSeleccionado.getNacimiento());
+        textViewBioFamoso.setText(famosoSeleccionado.getBiografia());
     }
 
     public void setearRecycler(){
@@ -91,7 +91,6 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
 
     public interface ListenerDeFragment {
         public void informarFamoso(Famoso famoso);
-
         public void informarPelicula(Pelicula pelicula);
     }
 

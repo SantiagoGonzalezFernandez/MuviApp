@@ -28,19 +28,10 @@
 
 
     <TextView
-        android:id="@+id/Fragment_TextView_EdadFamoso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Fragment_TextView_NombreFamoso"
-        android:layout_centerHorizontal="true"
-        android:text="EDAD:"
-        android:textColor="@color/colorPrimary" />
-
-    <TextView
         android:id="@+id/Fragment_TextView_BioFamoso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Fragment_TextView_EdadFamoso"
+        android:layout_below="@id/Fragment_TextView_NombreFamoso"
         android:layout_centerHorizontal="true"
         android:text="BIO:"
         android:textColor="@color/colorPrimary" />

@@ -10,15 +10,15 @@ public class Famoso implements Serializable {
 
     @SerializedName("name")
     private String StringNombre;
-    @SerializedName("birthday")
-    private String StringNacimiento;
+    @SerializedName("biography")
+    private String biografia;
     @SerializedName("profile_path")
     private String StringImagenDeFamoso;
     private Integer StringId;
 
-    public Famoso(String nombre, String nacimiento, String imagenDeFamoso, Integer id){
+    public Famoso(String nombre, String biografia, String imagenDeFamoso, Integer id){
         this.StringNombre = nombre;
-        this.StringNacimiento = nacimiento;
+        this.biografia = biografia;
         this.StringImagenDeFamoso = imagenDeFamoso;
         this.StringId = id;
     }
@@ -35,8 +35,8 @@ public class Famoso implements Serializable {
         return StringNombre;
     }
 
-    public String getNacimiento() {
-        return StringNacimiento;
+    public String getBiografia() {
+        return biografia;
     }
 
     public String generaURLImagen(){
