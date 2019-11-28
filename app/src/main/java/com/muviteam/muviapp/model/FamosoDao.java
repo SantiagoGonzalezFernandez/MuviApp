@@ -22,7 +22,7 @@ public class FamosoDao extends PeliculaRetrofitDao {
     }
 
     public void traerFamososDeLaPelicula(Integer movie_Id,final ResultListener<Credits> listenerDelControler ){
-        Call<Credits> call = peliculasService.traerCredits(movie_Id,LANGUAGE, API_KEY);
+        Call<Credits> call = peliculasService.traerCredits(movie_Id, API_KEY);
         call.enqueue( new Callback<Credits>() {
             @Override
             public void onResponse(Call<Credits> call, Response<Credits> response) {
@@ -38,7 +38,7 @@ public class FamosoDao extends PeliculaRetrofitDao {
 
     public void traerFamoso(final ResultListener<List<Famoso>> listenerDelControler){
 
-        Call<ContainerFamoso> call = peliculasService.traerPersona(LANGUAGE,API_KEY);
+        Call<ContainerFamoso> call = peliculasService.traerPersona(API_KEY);
 
         call.enqueue(new Callback<ContainerFamoso>() {
             @Override

@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         myDrawerLayout = findViewById(R.id.MainActivity_DrawerLayout_Contenedor);
         myNavigationView = findViewById(R.id.MainActivity_NavigationView);
         myToolbar = findViewById(R.id.MainActivity_Include_Toolbar);
+        recyclerView = findViewById(R.id.MainActivity_contenedorSearch);
     }
 
 
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         SearchView mySearchView = (SearchView) myMenuItemSearch.getActionView();
-        mySearchView.setQueryHint("Busqueda por Actor o Pelicula");
+        mySearchView.setQueryHint("Que Pelicula Buscas?");
 
         mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

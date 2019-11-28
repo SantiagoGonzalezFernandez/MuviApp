@@ -13,12 +13,10 @@ public interface Service {
 
     @GET("movie/{movie_id}/credits")
     Call<Credits> traerCredits(@Path("movie_id") Integer movieId,
-                               @Query("language") String lenguaje,
                                @Query("api_key") String apiKey);
 
     @GET("movie/{movie_id}/videos")
     Call<Videos> traerVideos(@Path("movie_id") Integer movieId,
-                             @Query("language") String lenguaje,
                              @Query("api_key") String apiKey);
 
     @GET("movie/upcoming")
@@ -26,13 +24,11 @@ public interface Service {
                                           @Query("language") String lenguaje);
 
     @GET("person/popular")
-    Call<ContainerFamoso> traerPersona(@Query("api_key") String apiKey,
-                                       @Query("language") String lenguaje);
+    Call<ContainerFamoso> traerPersona(@Query("api_key") String apiKey);
 
     @GET("discover/movie")
-    Call<ContainerPelicula> traerPeliculasDeFamoso(@Query("api_key") String apiKey,
-                                                   @Query("language") String lenguaje,
-                                                   @Query("with_people") Integer famosoId);
+    Call<ContainerPelicula> traerPeliculasDeFamoso(@Query("with_people") Integer famosoId,
+                                                   @Query("api_key") String apiKey);
 
     @GET("movie/now_playing")
     Call<ContainerPelicula> traerPeliculaViewPager(@Query("api_key") String apiKey,
@@ -44,12 +40,10 @@ public interface Service {
 
     @GET("movie/{movie_id}/similar")
     Call<ContainerPelicula> traerSimilares(@Path("movie_id") Integer movieId,
-                                           @Query("language") String lenguaje,
                                            @Query("api_key") String apiKey);
 
     @GET("search/movie")
-    Call<ContainerPelicula> traerPeliculaPorBusqueda(@Query("api_key") String apiKey,
-                                                     @Query("language") String lenguaje,
-                                                     @Query("movie") String movieBusqueda);
+    Call<ContainerPelicula> traerPeliculaPorBusqueda(@Query("movie") String movieBusqueda,
+                                                     @Query("api_key") String apiKey);
 
 }
