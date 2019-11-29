@@ -45,8 +45,9 @@ public interface Service {
                                            @Query("api_key") String apiKey);
 
     @GET("search/movie")
-    Call<ContainerPelicula> traerPeliculaPorBusqueda(@Path("movie") String movieBusqueda,
-                                                     @Query("api_key") String apiKey);
+    Call<ContainerPelicula> traerPeliculaPorBusqueda(@Query("api_key") String apiKey,
+                                                     @Query("language") String lenguaje,
+                                                     @Query("query") String movieBusqueda);
 
     @GET("discover/movie")
     Call<ContainerPelicula> traerPeliculasPorGenero(@Query("api_key") String apiKey,

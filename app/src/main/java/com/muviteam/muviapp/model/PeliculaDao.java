@@ -144,7 +144,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerPeliculasPorBusqueda(final ResultListener<List<Pelicula>> resultListenerController, String movieBusqueda){
-        Call<ContainerPelicula> call = peliculasService.traerPeliculaPorBusqueda(movieBusqueda, API_KEY);
+        Call<ContainerPelicula> call = peliculasService.traerPeliculaPorBusqueda(API_KEY, LANGUAGE, movieBusqueda);
 
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override

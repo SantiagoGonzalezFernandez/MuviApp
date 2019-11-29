@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -146,7 +147,7 @@ public class FragmentGeneros extends Fragment implements AdapterPelicula.Listene
                             adapterPelicula.setPeliculaList(result);
                         }
                     });
-                    contenedorGeneros.setLayoutManager(new LinearLayoutManager(getContext(), contenedorGeneros.VERTICAL, false));
+                    contenedorGeneros.setLayoutManager(new GridLayoutManager(getContext(), 3, contenedorGeneros.VERTICAL, false));
                     contenedorGeneros.setAdapter(adapterPelicula);
                     break;
                 case R.id.boton_genero2:

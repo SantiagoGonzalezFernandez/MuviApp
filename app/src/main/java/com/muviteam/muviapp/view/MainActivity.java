@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         adapterPelicula.setPeliculaList(result);
                     }
                 });
-                recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext(), recyclerView.VERTICAL, false));
+                recyclerView.setLayoutManager(new GridLayoutManager(getBaseContext(),3, recyclerView.VERTICAL, false));
                 recyclerView.setAdapter(adapterPelicula);
                 return true;
             }

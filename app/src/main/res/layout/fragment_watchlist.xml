@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:id="@+id/FragmentLista_RelativeLayout_Lista"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     android:background="@color/colorPrimary2"
@@ -22,6 +22,7 @@
         android:id="@+id/FragmentLista_MultiSnapRecyclerView_ListMovie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
         android:layout_below="@id/FragmentLista_TextView_Popular"
         android:orientation="horizontal"
         app:msrv_gravity="start"
