@@ -42,6 +42,7 @@ public interface Service {
 
     @GET("movie/{movie_id}/similar")
     Call<ContainerPelicula> traerSimilares(@Path("movie_id") Integer movieId,
+                                           @Query("language") String lenguaje,
                                            @Query("api_key") String apiKey);
 
     @GET("search/movie")
@@ -52,5 +53,11 @@ public interface Service {
     @GET("discover/movie")
     Call<ContainerPelicula> traerPeliculasPorGenero(@Query("api_key") String apiKey,
                                                     @Query("with_genres") Integer genero);
+
+    @GET("person/{person_id}")
+    Call<Famoso> traerFamoso(@Path("person_id") Integer person_id,
+                                       @Query("api_key") String apiKey,
+                                       @Query("language") String lenguaje);
+
 
 }

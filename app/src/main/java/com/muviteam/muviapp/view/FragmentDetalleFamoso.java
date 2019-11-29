@@ -52,8 +52,8 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
         adapterFamoso = new AdapterFamoso(this);
         adapterPelicula = new AdapterPelicula(this);
         peliculaController = new ControllerPelicula();
+        traerFamoso();
         cargarVariables();
-        setearRecycler();
         contenedorPeliculas.setLayoutManager(new LinearLayoutManager(getContext(), contenedorPeliculas.HORIZONTAL, false));
         contenedorPeliculas.setAdapter(adapterPelicula);
         return view;
@@ -67,14 +67,15 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
         contenedorPeliculas = view.findViewById(R.id.Fragment_Recicler_contenedorDeApareceEn);
     }
 
-    public void cargarVariables() {
-        Glide.with(this).load(famosoSeleccionado.generaURLImagen()).placeholder(R.drawable.load)
-                .error(R.drawable.logomuvi).into(imagenFamoso);
-        textViewNombreFamoso.setText(famosoSeleccionado.getNombre());
-        textViewBioFamoso.setText(famosoSeleccionado.getBiografia());
-    }
+      public void traerFamoso(){
+        peliculaController.traerFamoso(famosoSeleccionado.getId(), new ResultListener<Famoso>() {
+            @Override
+            public void finish(Famoso result) {
+                famosoSeleccionado = result;
+                textViewBioFamoso.setText(famosoSeleccionado.getBiography());
 
-    public void setearRecycler(){
+            }
+        });
         peliculaController.traePeliculaDeFamoso(famosoSeleccionado.getId(), new ResultListener<List<Pelicula>>() {
             @Override
             public void finish(List<Pelicula> result) {
@@ -83,6 +84,11 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
         });
     }
 
+    public void cargarVariables() {
+        Glide.with(this).load(famosoSeleccionado.generaURLImagen()).placeholder(R.drawable.load)
+                .error(R.drawable.logomuvi).into(imagenFamoso);
+        textViewNombreFamoso.setText(famosoSeleccionado.getNombre());
+    }
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);

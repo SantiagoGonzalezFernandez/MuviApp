@@ -2,6 +2,7 @@ package com.muviteam.muviapp.model;
 
 import android.util.Log;
 
+import com.facebook.FacebookSdkNotInitializedException;
 import com.muviteam.muviapp.utils.ResultListener;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class FamosoDao extends PeliculaRetrofitDao {
             @Override
             public void onResponse(Call<Credits> call, Response<Credits> response) {
                 Credits containerCast = response.body();
-                listenerDelControler.finish( containerCast);
+                listenerDelControler.finish(containerCast);
             }
             @Override
             public void onFailure(Call<Credits> call, Throwable t) {
@@ -36,20 +37,19 @@ public class FamosoDao extends PeliculaRetrofitDao {
         });
     }
 
-    public void traerFamoso(final ResultListener<List<Famoso>> listenerDelControler){
+    public void traerFamoso(Integer person_id, final ResultListener<Famoso> listenerDelControler){
 
-        Call<ContainerFamoso> call = peliculasService.traerPersona(API_KEY);
+        Call<Famoso> call = peliculasService.traerFamoso(person_id, API_KEY,LANGUAGE);
 
-        call.enqueue(new Callback<ContainerFamoso>() {
+        call.enqueue(new Callback<Famoso>() {
             @Override
-            public void onResponse(Call<ContainerFamoso> call, Response<ContainerFamoso> response) {
-                ContainerFamoso containerPelicula = response.body();
-                listenerDelControler.finish(containerPelicula.getResults());
+            public void onResponse(Call<Famoso> call, Response<Famoso> response) {
+                Famoso famoso = response.body();
+                listenerDelControler.finish(famoso);
             }
 
             @Override
-            public void onFailure(Call<ContainerFamoso> call, Throwable t) {
-                Log.d("ewfwq","dwsfaw");
+            public void onFailure(Call<Famoso> call, Throwable t) {
 
             }
         });

@@ -10,8 +10,7 @@ public class Famoso implements Serializable {
 
     @SerializedName("name")
     private String StringNombre;
-    @SerializedName("biography")
-    private String biografia;
+    private String biography;
     @SerializedName("profile_path")
     private String StringImagenDeFamoso;
     @SerializedName("id")
@@ -19,7 +18,7 @@ public class Famoso implements Serializable {
 
     public Famoso(String nombre, String biografia, String imagenDeFamoso, Integer id){
         this.StringNombre = nombre;
-        this.biografia = biografia;
+        this.biography = biografia;
         this.StringImagenDeFamoso = imagenDeFamoso;
         this.StringId = id;
     }
@@ -36,8 +35,36 @@ public class Famoso implements Serializable {
         return StringNombre;
     }
 
-    public String getBiografia() {
-        return biografia;
+    public String getStringNombre() {
+        return StringNombre;
+    }
+
+    public void setStringNombre(String stringNombre) {
+        StringNombre = stringNombre;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public void setBiography(String biography) {
+        this.biography = biography;
+    }
+
+    public String getStringImagenDeFamoso() {
+        return StringImagenDeFamoso;
+    }
+
+    public void setStringImagenDeFamoso(String stringImagenDeFamoso) {
+        StringImagenDeFamoso = stringImagenDeFamoso;
+    }
+
+    public Integer getStringId() {
+        return StringId;
+    }
+
+    public void setStringId(Integer stringId) {
+        StringId = stringId;
     }
 
     public String generaURLImagen(){

@@ -1,6 +1,7 @@
 package com.muviteam.muviapp.controller;
 
 import com.muviteam.muviapp.model.Credits;
+import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.FamosoDao;
 import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.model.PeliculaDao;
@@ -12,9 +13,11 @@ import java.util.List;
 public class ControllerPelicula {
 
     private PeliculaDao peliculaDAO;
+    private FamosoDao famosoDao;
 
     public ControllerPelicula() {
         this.peliculaDAO = new PeliculaDao();
+        this.famosoDao = new FamosoDao();
     }
 
     public void traePelicula(final ResultListener<List<Pelicula>> listenerDeLaVista) {
@@ -119,5 +122,12 @@ public class ControllerPelicula {
         }, genero);
     }
 
-
+    public void traerFamoso(Integer famosoId, final ResultListener<Famoso> listenerDeLaVista) {
+        famosoDao.traerFamoso(famosoId, new ResultListener<Famoso>() {
+            @Override
+            public void finish(Famoso result) {
+                listenerDeLaVista.finish(result);
+            }
+        });
+    }
 }
