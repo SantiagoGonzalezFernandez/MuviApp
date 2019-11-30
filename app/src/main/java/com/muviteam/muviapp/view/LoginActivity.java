@@ -47,8 +47,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
-        loginButton = findViewById(R.id.login_button);
-        loginSinRegister = findViewById(R.id.loginActivity_sinRegister);
+        loginButton = findViewById(R.id.LoginActivity_LoginButton_FacebookLogin);
+        loginSinRegister = findViewById(R.id.LoginActivity_TextView_IngresarSinRegistrarse);
         callbackManager = CallbackManager.Factory.create();
         loginButton.setReadPermissions(Arrays.asList(
                 "public_profile", "email", "user_birthday", "user_friends"));
@@ -78,10 +78,10 @@ public class LoginActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        mail = findViewById(R.id.loginActivity_mail);
-        pass = findViewById(R.id.loginActivity_password);
-        login = findViewById(R.id.loginActivity_login);
-        register = findViewById(R.id.loginActivity_register);
+        mail = findViewById(R.id.LoginActivity_TextInputEditText_Email);
+        pass = findViewById(R.id.LoginActivity_TextInputEditText_Password);
+        login = findViewById(R.id.LoginActivity_Button_BotonIngresar);
+        register = findViewById(R.id.LoginActivity_Button_BotonRegistrarse);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override

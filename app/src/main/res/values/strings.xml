@@ -19,4 +19,10 @@
     <string name="nombre_famoso">Nombre Famoso</string>
     <string name="cumple_hoy">Cumplen Hoy</string>
     <string name="titulogeneros">generos</string>
+
+    <string name="password">Password</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="ingresar_sin_registrarse">Ingresar sin registrarse</string>
+    <string name="email">Email</string>
 </resources>
