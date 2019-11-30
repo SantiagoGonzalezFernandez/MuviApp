@@ -6,58 +6,59 @@
     android:background="@color/colorPrimary2"
     tools:context=".view.FragmentDetalleFamoso">
 
-
-    <ImageView
-        android:id="@+id/Fragment_ImageView_Famoso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/colorAccent"
-        android:padding="3dp" />
-
-
-    <TextView
-        android:id="@+id/Fragment_TextView_NombreFamoso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Fragment_ImageView_Famoso"
-        android:layout_centerHorizontal="true"
-        android:text="NOMBRE:"
-        android:textColor="@color/colorPrimary" />
-
-
-    <TextView
-        android:id="@+id/Fragment_TextView_BioFamoso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Fragment_TextView_NombreFamoso"
-        android:layout_centerHorizontal="true"
-        android:text="BIO:"
-        android:textColor="@color/colorPrimary" />
-
-
-    <TextView
-        android:id="@+id/Fragment_TextView_ApareceEn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="350dp"
-        android:text="APARECE EN"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginBottom="5dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Fragment_Recicler_contenedorDeApareceEn"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Fragment_TextView_ApareceEn"
-        />
+        android:layout_height="match_parent">
 
-<!--<<<<<<< Updated upstream
-=======
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
->>>>>>> Stashed changes-->
+            <ImageView
+                android:id="@+id/Fragment_ImageView_Famoso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/colorAccent"
+                android:padding="3dp" />
+
+            <TextView
+                android:id="@+id/Fragment_TextView_NombreFamoso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Fragment_ImageView_Famoso"
+                android:layout_centerHorizontal="true"
+                android:text="NOMBRE:"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/Fragment_TextView_BioFamoso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Fragment_TextView_NombreFamoso"
+                android:gravity="center_horizontal"
+                android:text="BIO:"
+                android:textColor="@color/colorPrimary" />
+
+
+            <TextView
+                android:id="@+id/Fragment_TextView_ApareceEn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Fragment_TextView_BioFamoso"
+                android:layout_centerHorizontal="true"
+                android:text="APARECE EN"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Fragment_Recicler_contenedorDeApareceEn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Fragment_TextView_ApareceEn" />
+
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

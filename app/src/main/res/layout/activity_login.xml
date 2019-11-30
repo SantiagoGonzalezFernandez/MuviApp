@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary2"
     android:padding="16dp"
-    tools:context=".LoginActivity">
+    tools:context=".view.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +24,7 @@
                 android:id="@+id/LoginActivity_TextInputEditText_Email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:backgroundTint="@color/colorPrimary"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
@@ -47,13 +48,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary"
+                android:gravity="center_horizontal"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:outlineAmbientShadowColor="@color/colorPrimary"
                 android:outlineSpotShadowColor="@color/colorPrimary"
                 android:shadowColor="@color/colorPrimary"
                 android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimary" />
+                android:textColorHint="@color/colorAccent" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
