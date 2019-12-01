@@ -24,17 +24,17 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/MainActivity_contenedorSearch"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/MainActivity_NavigationView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            app:headerLayout="@layout/header_navigation_view"
-            app:menu="@menu/menu_principal"
             android:background="@color/colorPrimary2"
-            app:itemTextColor="@color/colorPrimary">
+            app:headerLayout="@layout/header_navigation_view"
+            app:itemTextColor="@color/colorPrimary"
+            app:menu="@menu/menu_principal">
 
         </com.google.android.material.navigation.NavigationView>
 

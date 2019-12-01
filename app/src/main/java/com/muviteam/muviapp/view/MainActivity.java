@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void creoElAppBar() {
         setSupportActionBar(myToolbar);
 
-        myArrayAdapterString = new ArrayAdapter<String>(MainActivity.this,
+        myArrayAdapterString = new ArrayAdapter<>(MainActivity.this,
                 android.R.layout.simple_list_item_1,
                 getResources().getStringArray(R.array.peliculas_array));
 
