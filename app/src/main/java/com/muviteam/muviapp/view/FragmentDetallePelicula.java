@@ -50,6 +50,7 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
     private String key, direc;
     private ControllerPelicula peliculaController;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

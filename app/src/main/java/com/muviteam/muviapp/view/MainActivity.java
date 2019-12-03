@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         mySearchView = (SearchView) myMenuItemSearch.getActionView();
-        mySearchView.setQueryHint("Que Pelicula Buscas?");
+        mySearchView.setQueryHint("Que pelicula buscas?");
 
         mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

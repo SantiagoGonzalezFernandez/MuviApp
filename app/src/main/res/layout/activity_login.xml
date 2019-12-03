@@ -18,7 +18,8 @@
             android:id="@+id/LoginActivity_TextInputLayout_AlertasDelEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp">
+            android:layout_margin="16dp"
+            android:textColorHint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/LoginActivity_TextInputEditText_Email"
@@ -27,12 +28,7 @@
                 android:gravity="center_horizontal"
                 android:backgroundTint="@color/colorPrimary"
                 android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:outlineAmbientShadowColor="@color/colorPrimary"
-                android:outlineSpotShadowColor="@color/colorPrimary"
-                android:shadowColor="@color/colorPrimary"
-                android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimary" />
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -41,7 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:textColorHint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/LoginActivity_TextInputEditText_Password"
@@ -50,12 +47,7 @@
                 android:backgroundTint="@color/colorPrimary"
                 android:gravity="center_horizontal"
                 android:hint="@string/password"
-                android:inputType="textPassword"
-                android:outlineAmbientShadowColor="@color/colorPrimary"
-                android:outlineSpotShadowColor="@color/colorPrimary"
-                android:shadowColor="@color/colorPrimary"
-                android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorAccent" />
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

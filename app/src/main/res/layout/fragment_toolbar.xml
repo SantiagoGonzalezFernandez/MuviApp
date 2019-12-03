@@ -21,7 +21,7 @@
             app:tabIndicatorColor="@color/colorAccent"
             app:tabMode="fixed"
             app:tabTextColor="@color/colorTexto"
-            app:tabSelectedTextColor="@color/colorAccent"/>
+            app:tabSelectedTextColor="@color/colorAccent2"/>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/FragmentToolbar_ViewPager_ContenedorDeFragments"
