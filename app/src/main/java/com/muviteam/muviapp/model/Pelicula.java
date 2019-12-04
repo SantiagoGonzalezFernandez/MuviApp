@@ -24,6 +24,7 @@ public class Pelicula implements Serializable {
     @SerializedName("vote_average")
     private Float popularity;
 
+
     public Float getPopularity() {
         return popularity;
     }

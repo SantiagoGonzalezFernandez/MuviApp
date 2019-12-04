@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.muviteam.muviapp.R;
@@ -49,6 +50,8 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
     private View view;
     private String key, direc;
     private ControllerPelicula peliculaController;
+    private FloatingActionButton floatingShare, floatingFavoritos;
+
 
 
     @Override
@@ -62,6 +65,25 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         peliculaController = new ControllerPelicula();
         cargarVariables();
         traerLaLista();
+
+        floatingShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                peliculaController.traerTrailer(new ResultListener<Videos>() {
+                    @Override
+                    public void finish(Videos result) {
+                        Intent intent = new Intent();
+                        intent.setAction(Intent.ACTION_SEND);
+                        key = result.getResults().get(0).getKey();
+                        intent.putExtra(Intent.EXTRA_TEXT, "https://youtu.be/" + key + " Mirate el trailer de " + peliculaSeleccionada.getTitulo());
+                        intent.setType("text/plain");
+                        Intent chooser = Intent.createChooser(intent, "Por donde queres compartir el Trailer?");
+                        startActivity(chooser);
+                    }
+                },peliculaSeleccionada.getId());
+
+            }
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),recyclerView.HORIZONTAL,false));
         recyclerView.setAdapter(adapterFamoso);
         recyclerSimilares.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
@@ -69,7 +91,9 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         return view;
     }
 
+    public void traerTrailer(){
 
+    }
 
     public void encontrarVariables(){
         textViewTitulo = view.findViewById(R.id.fragment_detalle_TituloPelicula);
@@ -80,6 +104,7 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         posterPelicula = view.findViewById(R.id.poster_detalle_pelicula);
         recyclerView = view.findViewById(R.id.fragment_famoso_recycler);
         recyclerSimilares = view.findViewById(R.id.fragment_similares_recycler);
+        floatingShare = view.findViewById(R.id.share_floating);
     }
 
     public void cargarVariables(){

@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 });
                 recyclerView.setLayoutManager(new GridLayoutManager(getBaseContext(),3, recyclerView.VERTICAL, false));
                 recyclerView.setAdapter(adapterPelicula);
-                return true;
+                return false;
             }
 
             @Override
