@@ -35,8 +35,6 @@ public class FragmentViewPager extends Fragment implements AdapterPelicula.Liste
     private String direc;
     private ListenerDeFragment listenerDelFragment;
 
-
-
     public static FragmentViewPager dameUnFragment(Pelicula pelicula) {
         FragmentViewPager fragmentViewPager = new FragmentViewPager();
         Bundle bundle = new Bundle();
@@ -44,7 +42,6 @@ public class FragmentViewPager extends Fragment implements AdapterPelicula.Liste
         fragmentViewPager.setArguments(bundle);
         return fragmentViewPager;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

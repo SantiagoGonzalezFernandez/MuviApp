@@ -53,8 +53,6 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
     private ControllerPelicula peliculaController;
     private FloatingActionButton floatingShare, floatingFavoritos;
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -138,7 +136,6 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
                 },peliculaSeleccionada.getId());
             }
         });
-
     }
 
     public void traerLaLista(){

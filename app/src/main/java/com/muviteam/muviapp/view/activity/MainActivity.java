@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RecyclerView recyclerView;
     private SearchView mySearchView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         myDrawerLayout,
                         myToolbar,
                         R.string.open_drawer,
-                        R.string.close_drawer);
+                        R.string.close_drawer); //Animacion de la hamburguesa (Open, Close Drawer)
 
         myDrawerLayout.addDrawerListener(myActionBarDrawerToggle);
         myActionBarDrawerToggle.syncState();

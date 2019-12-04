@@ -5,8 +5,8 @@ import java.util.List;
 public class Credits {
 
     private Integer id;
-    private List<Famoso> cast;
-    private List<Famoso> crew;
+    private List<Famoso> cast; //Actores
+    private List<Famoso> crew; //Los de atras (Esta el director que suele ser el 0)
 
     public Credits() {
         super();
