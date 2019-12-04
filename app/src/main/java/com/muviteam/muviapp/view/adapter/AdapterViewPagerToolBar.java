@@ -1,10 +1,14 @@
-package com.muviteam.muviapp.view;
+package com.muviteam.muviapp.view.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.muviteam.muviapp.view.fragment.FragmentGeneros;
+import com.muviteam.muviapp.view.fragment.FragmentHome;
+import com.muviteam.muviapp.view.fragment.FragmentWatchlist;
 
 import java.util.ArrayList;
 import java.util.List;

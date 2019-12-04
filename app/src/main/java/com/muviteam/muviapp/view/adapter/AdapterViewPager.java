@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.view;
+package com.muviteam.muviapp.view.adapter;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

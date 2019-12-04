@@ -6,7 +6,6 @@ public class ContainerPelicula {
 
     private List<Pelicula> results;
 
-
     public List<Pelicula> getResults() {
         return results;
     }

@@ -1,6 +1,5 @@
-package com.muviteam.muviapp.view;
+package com.muviteam.muviapp.view.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.muviteam.muviapp.R;
 import com.muviteam.muviapp.controller.ControllerPelicula;
-import com.muviteam.muviapp.model.Credits;
 import com.muviteam.muviapp.model.Pelicula;
-import com.muviteam.muviapp.utils.ResultListener;
 
 import java.util.ArrayList;
 import java.util.List;

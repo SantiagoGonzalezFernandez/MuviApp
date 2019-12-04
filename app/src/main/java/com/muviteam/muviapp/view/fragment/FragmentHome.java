@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.view;
+package com.muviteam.muviapp.view.fragment;
 
 
 import android.content.Context;
@@ -19,6 +19,9 @@ import com.muviteam.muviapp.controller.ControllerPelicula;
 import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.utils.ResultListener;
+import com.muviteam.muviapp.view.adapter.AdapterFamoso;
+import com.muviteam.muviapp.view.adapter.AdapterPelicula;
+import com.muviteam.muviapp.view.adapter.AdapterViewPager;
 
 import java.util.ArrayList;
 import java.util.List;

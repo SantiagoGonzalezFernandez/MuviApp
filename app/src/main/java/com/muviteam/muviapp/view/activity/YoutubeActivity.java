@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.view;
+package com.muviteam.muviapp.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

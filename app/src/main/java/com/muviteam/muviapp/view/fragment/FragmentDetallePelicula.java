@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.view;
+package com.muviteam.muviapp.view.fragment;
 
 
 import android.content.Context;
@@ -19,8 +19,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.youtube.player.YouTubePlayerView;
-import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.muviteam.muviapp.R;
 import com.muviteam.muviapp.controller.ControllerPelicula;
 import com.muviteam.muviapp.model.Credits;
@@ -28,6 +26,9 @@ import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.model.Videos;
 import com.muviteam.muviapp.utils.ResultListener;
+import com.muviteam.muviapp.view.activity.YoutubeActivity;
+import com.muviteam.muviapp.view.adapter.AdapterFamoso;
+import com.muviteam.muviapp.view.adapter.AdapterPelicula;
 
 import java.util.List;
 
@@ -171,7 +172,7 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
     }
 
     private void cambiarDeActivity(){
-        Intent intent = new Intent(getContext(),YoutubeActivity.class);
+        Intent intent = new Intent(getContext(), YoutubeActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString(YoutubeActivity.CLAVE_KEY,key);
         intent.putExtras(bundle);

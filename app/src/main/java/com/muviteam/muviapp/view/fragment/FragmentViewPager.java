@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.view;
+package com.muviteam.muviapp.view.fragment;
 
 
 import android.content.Context;
@@ -19,9 +19,7 @@ import com.muviteam.muviapp.controller.ControllerPelicula;
 import com.muviteam.muviapp.model.Credits;
 import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.utils.ResultListener;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.muviteam.muviapp.view.adapter.AdapterPelicula;
 
 /**
  * A simple {@link Fragment} subclass.

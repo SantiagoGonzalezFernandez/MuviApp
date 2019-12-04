@@ -1,4 +1,4 @@
-package com.muviteam.muviapp.view;
+package com.muviteam.muviapp.view.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.muviteam.muviapp.R;
 import com.muviteam.muviapp.model.Famoso;
-import com.muviteam.muviapp.model.Pelicula;
 
 import java.util.ArrayList;
 import java.util.List;
