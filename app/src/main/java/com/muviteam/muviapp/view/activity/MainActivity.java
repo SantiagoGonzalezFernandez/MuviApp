@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         configuroToolbar();
         toolbarFragment = new ToolbarFragment();
         pegarFragment(toolbarFragment);
-
     }
 
     private void encuentroVariablesPorId() {
@@ -130,8 +129,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         adapterPelicula.setPeliculaList(result);
                     }
                 });
-                recyclerView.setLayoutManager(new GridLayoutManager(getBaseContext(),3, recyclerView.VERTICAL, false));
-                recyclerView.setAdapter(adapterPelicula);
+
                 return false;
             }
 

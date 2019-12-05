@@ -24,19 +24,29 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/CeldaFamoso_ImageView_ImagenFamoso"
+            <FrameLayout
+                android:id="@+id/celdaFamoso_Frame"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:scaleType="fitXY" />
+                android:layout_height="80dp">
 
+                <ProgressBar
+                    android:id="@+id/celdaFamoso_ProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/CeldaFamoso_ImageView_ImagenFamoso"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="fitXY" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/CeldaFamoso_TextView_NombreFamoso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/CeldaFamoso_ImageView_ImagenFamoso"
+                android:layout_below="@id/celdaFamoso_Frame"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"

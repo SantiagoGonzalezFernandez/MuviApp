@@ -1,7 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="120dp"
+    android:layout_width="110dp"
     android:layout_height="wrap_content"
     android:paddingLeft="5dp"
     android:orientation="vertical">
@@ -34,17 +34,28 @@
                 android:textStyle="bold"
                 tools:text="@string/nombrepelicula" />
 
-            <ImageView
-                android:id="@+id/CeldaPelicula_ImageView_ImagenPelicula"
+            <FrameLayout
+                android:id="@+id/celdaPelicula_Frame"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:scaleType="fitXY" />
+                android:layout_height="140dp">
+
+                <ProgressBar
+                    android:id="@+id/celdaPelicula_ProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/CeldaPelicula_ImageView_ImagenPelicula"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="fitXY" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/CeldaPelicula_TextView_RatingPelicula"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/celdaPelicula_Frame"
                 android:drawableStart="@drawable/ic_star_black_24dp"
                 android:gravity="start"
                 android:textColor="@color/colorTexto"

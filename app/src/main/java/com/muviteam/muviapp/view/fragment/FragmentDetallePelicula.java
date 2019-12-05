@@ -90,10 +90,6 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         return view;
     }
 
-    public void traerTrailer(){
-
-    }
-
     public void encontrarVariables(){
         textViewTitulo = view.findViewById(R.id.fragment_detalle_TituloPelicula);
         textViewSinopsis = view.findViewById(R.id.fragment_detalle_DescripcionPelicula);
