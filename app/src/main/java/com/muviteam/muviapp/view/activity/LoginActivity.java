@@ -29,7 +29,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.muviteam.muviapp.R;
@@ -66,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         encuentroLosObjetosPorId();
 
         //Cada vez que inicia la app se desloguea el usuario
-        FirebaseAuth.getInstance();
+        FirebaseAuth.getInstance().signOut();
 
         //Inicializamos el objeto myFirebaseAuth
         myFirebaseAuth = FirebaseAuth.getInstance();
@@ -84,7 +86,6 @@ public class LoginActivity extends AppCompatActivity {
         myTextInputEditTextPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -100,7 +101,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
     }
@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Toast.makeText(LoginActivity.this, "Login Exitoso", Toast.LENGTH_LONG).show();
-                irAMainActivity();
+                handleFacebookAccessToken(loginResult.getAccessToken());
             }
 
             @Override
@@ -247,7 +247,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 
     //Este metodo si tiene un usuario valido va a pasar directamente a la MainActivity
@@ -262,6 +261,29 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    private void handleFacebookAccessToken(AccessToken token) {
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        myFirebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+
+                            FirebaseUser user = myFirebaseAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+
+                        // ...
+                    }
+                });
+    }
 
     @Override
     public void onStart() {
