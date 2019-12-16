@@ -9,11 +9,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            android:id="@+id/FragmentGeneros_Recyclerview_ContenedorDeGeneros"/>
     </ScrollView>
 
     <ScrollView
@@ -35,7 +30,7 @@
                 android:id="@+id/boton_genero1"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/accion" />
 
@@ -44,7 +39,7 @@
                 android:id="@+id/boton_genero2"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/aventura"
                 />
@@ -53,7 +48,7 @@
                 android:id="@+id/boton_genero3"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/animacion" />
 
@@ -62,7 +57,7 @@
                 android:id="@+id/boton_genero4"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/cienciaficcion" />
 
@@ -70,7 +65,7 @@
                 android:id="@+id/boton_genero5"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/comedia" />
 
@@ -79,7 +74,7 @@
                 android:id="@+id/boton_genero6"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/crimen" />
 
@@ -87,7 +82,7 @@
                 android:id="@+id/boton_genero7"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/documental" />
 
@@ -96,7 +91,7 @@
                 android:id="@+id/boton_genero8"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/drama" />
 
@@ -104,7 +99,7 @@
                 android:id="@+id/boton_genero9"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/familia" />
 
@@ -113,7 +108,7 @@
                 android:id="@+id/boton_genero10"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/fantasia" />
 
@@ -122,7 +117,7 @@
                 android:id="@+id/boton_genero11"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/guerra" />
 
@@ -130,7 +125,7 @@
                 android:id="@+id/boton_genero12"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/historia" />
 
@@ -139,7 +134,7 @@
                 android:id="@+id/boton_genero13"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/horror" />
 
@@ -147,7 +142,7 @@
                 android:id="@+id/boton_genero14"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/misterio" />
 
@@ -156,7 +151,7 @@
                 android:id="@+id/boton_genero15"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/musica" />
 
@@ -164,7 +159,7 @@
                 android:id="@+id/boton_genero16"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/peliculasdetv" />
 
@@ -173,7 +168,7 @@
                 android:id="@+id/boton_genero17"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/romance" />
 
@@ -181,7 +176,7 @@
                 android:id="@+id/boton_genero18"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/western" />
         </GridLayout>

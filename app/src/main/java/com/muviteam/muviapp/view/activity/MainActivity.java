@@ -181,7 +181,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-
     private void pegarFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()

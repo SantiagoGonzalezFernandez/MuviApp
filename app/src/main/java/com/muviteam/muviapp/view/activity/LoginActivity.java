@@ -238,7 +238,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = myFirebaseAuth.getCurrentUser();
-                            updateUI(user);
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(LoginActivity.this, "Fallo Logueo.",

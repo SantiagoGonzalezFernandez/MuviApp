@@ -33,12 +33,6 @@ public class FragmentGeneros extends Fragment implements AdapterPelicula.Listene
     private ControllerPelicula controllerPelicula;
     private AdapterPelicula adapterPelicula;
 
-
-    public FragmentGeneros() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,8 +46,6 @@ public class FragmentGeneros extends Fragment implements AdapterPelicula.Listene
     }
 
     public void encontrarVariables() {
-
-        contenedorGeneros = view.findViewById(R.id.FragmentGeneros_Recyclerview_ContenedorDeGeneros);
 
         accion = view.findViewById(R.id.boton_genero1);
         accion.setOnClickListener(new OnClickDeLosBotones());
@@ -139,14 +131,13 @@ public class FragmentGeneros extends Fragment implements AdapterPelicula.Listene
             switch (v.getId()) {
                 case R.id.boton_genero1:
                     Toast.makeText(getContext(), "Peliculas de accion", Toast.LENGTH_SHORT).show();
-                    controllerPelicula.traerPeliculaPorGenero(28, new ResultListener<List<Pelicula>>() {
-                        @Override
-                        public void finish(List<Pelicula> result) {
-                            adapterPelicula.setPeliculaList(result);
-                        }
-                    });
-                    contenedorGeneros.setLayoutManager(new GridLayoutManager(getContext(), 3, contenedorGeneros.VERTICAL, false));
-                    contenedorGeneros.setAdapter(adapterPelicula);
+
+                    Bundle bundle = new Bundle();
+                    FragmentLista fragmentLista = new FragmentLista();
+                    bundle.putInt(fragmentLista.VALORGENERO, 28);
+                    fragmentLista.setArguments(bundle);
+                    pegarFragment(fragmentLista);
+
                     break;
                 case R.id.boton_genero2:
                     Toast.makeText(getContext(), "Peliculas de aventura", Toast.LENGTH_SHORT).show();
@@ -221,5 +212,11 @@ public class FragmentGeneros extends Fragment implements AdapterPelicula.Listene
         }
     }
 
-
+    private void pegarFragment(Fragment fragment) {
+        getFragmentManager()
+                .beginTransaction()
+                .add(R.id.MainActivity_FrameLayout_ContenedorDeFragments, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
 }
