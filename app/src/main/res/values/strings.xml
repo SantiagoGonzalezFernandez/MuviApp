@@ -25,4 +25,9 @@
     <string name="registrarse">Registrarse</string>
     <string name="ingresar_sin_registrarse">Ingresar sin registrarse</string>
     <string name="email">Email</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+
+    <string name="cargar_imagen">Cargar Imagen</string>
+    <string name="guardar_cambios">Guardar Cambios</string>
 </resources>

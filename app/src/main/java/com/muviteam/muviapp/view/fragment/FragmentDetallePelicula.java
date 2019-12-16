@@ -16,16 +16,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.muviteam.muviapp.R;
+import com.muviteam.muviapp.controller.ControllerFirestore;
 import com.muviteam.muviapp.controller.ControllerPelicula;
 import com.muviteam.muviapp.model.Credits;
 import com.muviteam.muviapp.model.Famoso;
+import com.muviteam.muviapp.model.FirestoreDao;
 import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.model.Videos;
 import com.muviteam.muviapp.utils.ResultListener;
+import com.muviteam.muviapp.view.activity.LoginActivity;
 import com.muviteam.muviapp.view.activity.YoutubeActivity;
 import com.muviteam.muviapp.view.adapter.AdapterFamoso;
 import com.muviteam.muviapp.view.adapter.AdapterPelicula;
@@ -52,6 +58,10 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
     private String key, direc;
     private ControllerPelicula peliculaController;
     private FloatingActionButton floatingShare, floatingFavoritos;
+    private ControllerFirestore firestoreController;
+    private Boolean esFavorita;
+    private FirebaseUser firebaseUser;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,11 +69,11 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         view = inflater.inflate(R.layout.fragment_detalle_pelicula, container, false);
         encontrarVariables();
         peliculaSeleccionada = (Pelicula) getArguments().getSerializable(CLAVE_PELICULA);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         adapterFamoso = new AdapterFamoso(this);
         adapterPelicula = new AdapterPelicula(this);
         peliculaController = new ControllerPelicula();
-        cargarVariables();
-        traerLaLista();
+        firestoreController = new ControllerFirestore();
 
         floatingShare.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,10 +90,36 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
                         startActivity(chooser);
                     }
                 },peliculaSeleccionada.getId());
-
             }
         });
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),recyclerView.HORIZONTAL,false));
+
+        floatingFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (firebaseUser == null) {
+                    Toast.makeText(getContext(), "por favor logueateee!!!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getContext(), LoginActivity.class);
+                    startActivity(intent);
+                }
+                firestoreController.agregarPeliculaAFav(peliculaSeleccionada);
+                esFavorita = !esFavorita;
+                actualizarFav();
+            }
+        });
+
+        cargarVariables();
+        traerLaLista();
+
+        firestoreController.traerListaDeFavorito(new ResultListener<List<Pelicula>>() {
+            @Override
+            public void finish(List<Pelicula> result) {
+                esFavorita = result.contains(peliculaSeleccionada);
+                actualizarFav();
+                habilitarOnClickDeFav();
+            }
+        });
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
         recyclerView.setAdapter(adapterFamoso);
         recyclerSimilares.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         recyclerSimilares.setAdapter(adapterPelicula);
@@ -100,6 +136,7 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         recyclerView = view.findViewById(R.id.fragment_famoso_recycler);
         recyclerSimilares = view.findViewById(R.id.fragment_similares_recycler);
         floatingShare = view.findViewById(R.id.share_floating);
+        floatingFavoritos = view.findViewById(R.id.fav_floating);
     }
 
     public void cargarVariables(){
@@ -149,6 +186,31 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         });
     }
 
+    private void cambiarDeActivity(){
+        Intent intent = new Intent(getContext(), YoutubeActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString(YoutubeActivity.CLAVE_KEY,key);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        listenerDelFragment = (ListenerDeFragment) context;
+    }
+
+    private void habilitarOnClickDeFav() {
+        floatingFavoritos.setClickable(true);
+    }
+
+    private void actualizarFav(){
+        if (esFavorita){
+            floatingFavoritos.setImageResource(R.drawable.ic_favorite_black_24dp); }
+        else {
+            floatingFavoritos.setImageResource(R.drawable.ic_favorite_border_black_24dp); }
+    }
+
     @Override
     public void informarFamoso(Famoso famoso) {
         listenerDelFragment.informarFamoso(famoso);
@@ -164,17 +226,4 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         public void informarPelicula(Pelicula pelicula);
     }
 
-    private void cambiarDeActivity(){
-        Intent intent = new Intent(getContext(), YoutubeActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString(YoutubeActivity.CLAVE_KEY,key);
-        intent.putExtras(bundle);
-        startActivity(intent);
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        listenerDelFragment = (ListenerDeFragment) context;
-    }
 }

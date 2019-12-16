@@ -21,11 +21,14 @@ import android.widget.Toast;
 import com.facebook.login.LoginManager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.muviteam.muviapp.R;
 import com.muviteam.muviapp.controller.ControllerPelicula;
 import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.utils.ResultListener;
+import com.muviteam.muviapp.view.adapter.AdapterFavorito;
+import com.muviteam.muviapp.view.fragment.FragmentWatchlist;
 import com.muviteam.muviapp.view.fragment.ToolbarFragment;
 import com.muviteam.muviapp.view.adapter.AdapterFamoso;
 import com.muviteam.muviapp.view.adapter.AdapterPelicula;
@@ -38,7 +41,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterPelicula.ListenerDelAdapter
         , FragmentHome.ListenerDeFragment, FragmentViewPager.ListenerDeFragment, FragmentDetallePelicula.ListenerDeFragment,
-        AdapterFamoso.ListenerDelAdapter, FragmentDetalleFamoso.ListenerDeFragment {
+        AdapterFamoso.ListenerDelAdapter, FragmentDetalleFamoso.ListenerDeFragment , AdapterFavorito.ListenerDelAdapter, FragmentWatchlist.ListenerDeFragment {
 
     private Toolbar myToolbar;
     private ArrayAdapter<String> myArrayAdapterString;
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private FirebaseAuth myFirebaseAuth; //El firebase Auth te da las cosas del user
     private LoginManager myLoginManager; //El LoginManager me deja mover las cosas del user de facebook
+    private FirebaseUser firebaseUser;
 
     private Fragment currentFragment;
     private AdapterPelicula adapterPelicula;
@@ -63,6 +67,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView = findViewById(R.id.FragmentLista_MultiSnapRecyclerView_ListMovie);
         adapterPelicula = new AdapterPelicula(this);
         controllerPelicula = new ControllerPelicula();
+        myFirebaseAuth = FirebaseAuth.getInstance();
+        myLoginManager = LoginManager.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         encuentroVariablesPorId();
         configuroToolbar();
         toolbarFragment = new ToolbarFragment();
@@ -151,17 +158,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (intItemSeleccionadoId){
             case R.id.MenuPrincipal_Item_Home:
                 Toast.makeText(this, "Home", Toast.LENGTH_LONG).show();
-                //Aca va la logica del home
+                pegarFragment(new ToolbarFragment());
                 break;
             case R.id.MenuPrincipal_Item_Configuracion:
-                Toast.makeText(this, "Configuracion", Toast.LENGTH_LONG).show();
-                //Aca va la logica de configuracion
+                if (firebaseUser == null) {
+                    Toast.makeText(this, "Por Favor Inicie Sesion!!!", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                }else {
+                    Toast.makeText(this, "Ingresando a su Perfil", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getBaseContext(), AltaYPerfilUsuario.class));}
                 break;
             case R.id.MenuPrincipal_Item_CerrarSesion:
                 Toast.makeText(this, "Cerrar sesion", Toast.LENGTH_LONG).show();
                 //Cierro la sesion de firebase y la de facebook y abro el LoginActivity
-                myFirebaseAuth = FirebaseAuth.getInstance();
-                myLoginManager = LoginManager.getInstance();
                 myLoginManager.logOut();
                 myFirebaseAuth.signOut();
                 startActivity(new Intent(MainActivity.this, LoginActivity.class ));

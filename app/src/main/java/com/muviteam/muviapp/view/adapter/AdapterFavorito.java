@@ -18,65 +18,61 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.muviteam.muviapp.R;
-import com.muviteam.muviapp.controller.ControllerPelicula;
 import com.muviteam.muviapp.model.Pelicula;
-import com.muviteam.muviapp.utils.ResultListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.view.View.GONE;
 
-public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHolderPeliculas> {
+public class AdapterFavorito  extends RecyclerView.Adapter<AdapterFavorito.ViewHolderPeliculas> {
 
-    private List<Pelicula> peliculaList;
+    private List<Pelicula> favoritoList;
     private ListenerDelAdapter listenerDelAdapter;
+    private View vistaDeLaCelda;
+    private ProgressBar progressBar;
 
-
-    public AdapterPelicula(List<Pelicula> peliculaList) {
-        this.peliculaList = peliculaList;
+    public AdapterFavorito(List<Pelicula> favoritoList) {
+        this.favoritoList = favoritoList;
     }
 
-    public AdapterPelicula(ListenerDelAdapter listenerDelAdapter) {
-        peliculaList = new ArrayList<>();
+    public AdapterFavorito(ListenerDelAdapter listenerDelAdapter) {
+        favoritoList = new ArrayList<>();
         this.listenerDelAdapter = listenerDelAdapter;
-    }
-
-    public void setPeliculaList(List<Pelicula> peliculaList) {
-        this.peliculaList = peliculaList;
-        notifyDataSetChanged();
-    }
-
-    public List<Pelicula> getPeliculaList() {
-        return peliculaList;
     }
 
     @NonNull
     @Override
-    public ViewHolderPeliculas onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdapterFavorito.ViewHolderPeliculas onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View vistaDeLaCelda = inflater.inflate(R.layout.celda_pelicula, parent, false);
+        vistaDeLaCelda = inflater.inflate(R.layout.celda_pelicula, parent, false);
         return new ViewHolderPeliculas(vistaDeLaCelda);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderPeliculas holder, int position) {
-        Pelicula peliculaMostrada = peliculaList.get(position);
+        Pelicula peliculaMostrada = favoritoList.get(position);
         holder.cargarPelicula(peliculaMostrada);
     }
 
     @Override
     public int getItemCount() {
-        return peliculaList.size();
+        return favoritoList.size(); }
+
+    public void setFavoritoList(List<Pelicula> favoritoList) {
+        this.favoritoList = favoritoList;
+        notifyDataSetChanged();
+    }
+
+    public List<Pelicula> getFavoritoList() {
+        return favoritoList;
     }
 
     public class ViewHolderPeliculas extends RecyclerView.ViewHolder {
         private TextView textViewTitulo;
-        private TextView textViewDirector;
         private TextView textViewPuntaje;
         private ImageView imageViewImagenDePelicula;
         private String puntaje;
-        private ProgressBar progressBar;
 
         public ViewHolderPeliculas(@NonNull View itemView) {
             super(itemView);
@@ -87,7 +83,7 @@ public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Pelicula peliculaSeleccionada = peliculaList.get(getAdapterPosition());
+                    Pelicula peliculaSeleccionada = favoritoList.get(getAdapterPosition());
                     listenerDelAdapter.informarPelicula(peliculaSeleccionada);
                 }
             });

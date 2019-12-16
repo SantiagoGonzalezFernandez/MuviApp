@@ -3,6 +3,7 @@ package com.muviteam.muviapp.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Pelicula implements Serializable {
 
@@ -27,6 +28,10 @@ public class Pelicula implements Serializable {
 
     public Float getPopularity() {
         return popularity;
+    }
+
+    public Pelicula(){
+
     }
 
     public Pelicula(String stringTitulo, String stringImagenurl, String stringImagenurlcelda) {
@@ -109,6 +114,11 @@ public class Pelicula implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Pelicula pelicula = (Pelicula) o;
         return integerId.equals(pelicula.integerId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(integerId);
     }
 
 }

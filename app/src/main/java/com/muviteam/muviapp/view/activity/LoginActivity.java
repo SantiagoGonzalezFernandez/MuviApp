@@ -252,7 +252,7 @@ public class LoginActivity extends AppCompatActivity {
     //Este metodo si tiene un usuario valido va a pasar directamente a la MainActivity
     private void updateUI(FirebaseUser currentUser) {
         if (currentUser != null) {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, AltaYPerfilUsuario.class));
         }
     }
     private void updateUIFacebook(Boolean estaAdentroConFacebook) {
