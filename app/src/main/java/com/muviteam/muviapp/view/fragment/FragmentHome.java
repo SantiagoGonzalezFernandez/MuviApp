@@ -134,6 +134,11 @@ public class FragmentHome extends Fragment implements AdapterPelicula.ListenerDe
     }
 
     @Override
+    public void informarGenero(Integer genero) {
+
+    }
+
+    @Override
     public void informarFamoso(Famoso famoso) {
         listenerDelFragment.recibirFamoso(famoso);
     }

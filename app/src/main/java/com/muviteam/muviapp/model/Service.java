@@ -52,7 +52,8 @@ public interface Service {
 
     @GET("discover/movie")
     Call<ContainerPelicula> traerPeliculasPorGenero(@Query("api_key") String apiKey,
-                                                    @Query("with_genres") Integer genero);
+                                                    @Query("with_genres") Integer genero,
+                                                    @Query("language") String lenguaje);
 
     @GET("person/{person_id}")
     Call<Famoso> traerFamoso(@Path("person_id") Integer person_id,

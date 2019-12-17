@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimaryDark"
-    tools:context=".view.fragment.FragmentLista">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragment.FragmentBusqueda">
 
 
     <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
-        android:id="@+id/FragmentLista_MultiSnapRecyclerView_ListaDeMovie"
+        android:id="@+id/FragmentBusqueda_MultiSnapRecyclerView_Lista"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimaryDark"

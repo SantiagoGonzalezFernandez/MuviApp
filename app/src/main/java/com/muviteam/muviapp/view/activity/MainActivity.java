@@ -28,6 +28,9 @@ import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.utils.ResultListener;
 import com.muviteam.muviapp.view.adapter.AdapterFavorito;
+import com.muviteam.muviapp.view.fragment.FragmentBusqueda;
+import com.muviteam.muviapp.view.fragment.FragmentGeneros;
+import com.muviteam.muviapp.view.fragment.FragmentLista;
 import com.muviteam.muviapp.view.fragment.FragmentWatchlist;
 import com.muviteam.muviapp.view.fragment.ToolbarFragment;
 import com.muviteam.muviapp.view.adapter.AdapterFamoso;
@@ -40,13 +43,15 @@ import com.muviteam.muviapp.view.fragment.FragmentViewPager;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterPelicula.ListenerDelAdapter
-        , FragmentHome.ListenerDeFragment, FragmentViewPager.ListenerDeFragment, FragmentDetallePelicula.ListenerDeFragment,
-        AdapterFamoso.ListenerDelAdapter, FragmentDetalleFamoso.ListenerDeFragment , AdapterFavorito.ListenerDelAdapter, FragmentWatchlist.ListenerDeFragment {
+        , FragmentHome.ListenerDeFragment, FragmentViewPager.ListenerDeFragment, FragmentDetallePelicula.ListenerDeFragment, FragmentGeneros.ListenerDeFragment,
+       FragmentLista.ListenerDeFragment, AdapterFamoso.ListenerDelAdapter, FragmentDetalleFamoso.ListenerDeFragment , AdapterFavorito.ListenerDelAdapter,
+        FragmentWatchlist.ListenerDeFragment, FragmentBusqueda.ListenerDeFragment {
 
     private Toolbar myToolbar;
     private ArrayAdapter<String> myArrayAdapterString;
     private DrawerLayout myDrawerLayout;
     private NavigationView myNavigationView;
+    private String letraGenero;
 
     private ToolbarFragment toolbarFragment;
 
@@ -130,19 +135,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                controllerPelicula.traerPeliculasPorBusqueda(query, new ResultListener<List<Pelicula>>() {
-                    @Override
-                    public void finish(List<Pelicula> result) {
-                        adapterPelicula.setPeliculaList(result);
-                    }
-                });
-
+                FragmentBusqueda fragmentBusqueda = new FragmentBusqueda();
+                Bundle bundle = new Bundle();
+                bundle.putString(fragmentBusqueda.BUSQUEDA, query);
+                fragmentBusqueda.setArguments(bundle);
+                currentFragment = fragmentBusqueda;
+                pegarFragment(fragmentBusqueda);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                myArrayAdapterString.getFilter().filter(newText);
                 return true;
             }
         });
@@ -246,5 +249,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragment_detallePelicula.setArguments(bundle);
         currentFragment = fragment_detallePelicula;
         pegarFragment(fragment_detallePelicula);
+    }
+
+    @Override
+    public void informarGenero(Integer genero) {
+        FragmentLista fragmentLista = new FragmentLista();
+        Bundle bundle = new Bundle();
+        letraGenero = String.valueOf(genero);
+        bundle.putString(fragmentLista.VALORGENERO, letraGenero);
+        fragmentLista.setArguments(bundle);
+        currentFragment = fragmentLista;
+        pegarFragment(fragmentLista);
+    }
+
+    @Override
+    public void recibirGenero(Integer genero) {
+        FragmentLista fragmentLista = new FragmentLista();
+        Bundle bundle = new Bundle();
+        letraGenero = String.valueOf(genero);
+        bundle.putString(fragmentLista.VALORGENERO, letraGenero);
+        fragmentLista.setArguments(bundle);
+        currentFragment = fragmentLista;
+        pegarFragment(fragmentLista);
     }
 }

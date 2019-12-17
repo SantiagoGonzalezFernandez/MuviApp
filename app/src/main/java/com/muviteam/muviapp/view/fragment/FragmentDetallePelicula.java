@@ -221,6 +221,11 @@ public class FragmentDetallePelicula extends Fragment implements AdapterFamoso.L
         listenerDelFragment.informarPelicula(pelicula);
     }
 
+    @Override
+    public void informarGenero(Integer genero) {
+
+    }
+
     public interface ListenerDeFragment{
         public void informarFamoso(Famoso famoso);
         public void informarPelicula(Pelicula pelicula);

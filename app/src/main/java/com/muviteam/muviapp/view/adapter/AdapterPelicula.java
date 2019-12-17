@@ -117,5 +117,6 @@ public class AdapterPelicula extends RecyclerView.Adapter<AdapterPelicula.ViewHo
 
     public interface ListenerDelAdapter {
         public void informarPelicula(Pelicula pelicula);
+        public void informarGenero(Integer genero);
     }
 }

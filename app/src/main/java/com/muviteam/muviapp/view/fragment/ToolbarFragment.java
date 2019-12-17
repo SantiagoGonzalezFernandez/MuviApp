@@ -45,12 +45,4 @@ public class ToolbarFragment extends Fragment{
     }
 
 
-
-    private void pegarFragment(Fragment fragment){
-        getFragmentManager()
-                .beginTransaction()
-                .replace(R.id.MainActivity_FrameLayout_ContenedorDeFragments,fragment)
-                .addToBackStack(null)
-                .commit();
-    }
 }

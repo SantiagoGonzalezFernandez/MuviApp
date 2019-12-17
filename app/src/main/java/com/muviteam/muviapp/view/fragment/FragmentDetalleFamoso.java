@@ -111,4 +111,9 @@ public class FragmentDetalleFamoso extends Fragment implements AdapterFamoso.Lis
     public void informarPelicula(Pelicula pelicula) {
         listenerDelFragment.informarPelicula(pelicula);
     }
+
+    @Override
+    public void informarGenero(Integer genero) {
+
+    }
 }

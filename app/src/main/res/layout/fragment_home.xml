@@ -112,35 +112,6 @@
 
             </RelativeLayout>
 
-
-            <RelativeLayout
-                android:id="@+id/MainActivity_RelativeLayout_Cumpleanos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@color/colorPrincipal">
-
-                <TextView
-                    android:id="@+id/MainActivity_TextView_Cumpleanos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:text="@string/cumple_hoy"
-                    android:textColor="@color/colorTexto"
-                    android:textSize="20sp"
-                    android:textAllCaps="true"/>
-
-                <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
-                    android:id="@+id/MainActivity_MultiSnapRecyclerView_cumpleanosListMovie"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/MainActivity_TextView_Cumpleanos"
-                    android:orientation="horizontal" />
-
-            </RelativeLayout>
-
-
-
         </LinearLayout>
 
     </ScrollView>

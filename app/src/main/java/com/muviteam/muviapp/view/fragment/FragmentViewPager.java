@@ -144,5 +144,10 @@ public class FragmentViewPager extends Fragment implements AdapterPelicula.Liste
     public void informarPelicula(Pelicula pelicula) {
         listenerDelFragment.recibirPelicula(pelicula);
     }
+
+    @Override
+    public void informarGenero(Integer genero) {
+
+    }
 }
 

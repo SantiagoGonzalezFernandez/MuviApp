@@ -161,7 +161,7 @@ public class PeliculaDao extends PeliculaRetrofitDao {
     }
 
     public void traerPeliculasPorGenero(final ResultListener<List<Pelicula>> listResultListener, Integer genero) {
-        Call<ContainerPelicula> call = peliculasService.traerPeliculasPorGenero(API_KEY, genero);
+        Call<ContainerPelicula> call = peliculasService.traerPeliculasPorGenero(API_KEY, genero, LANGUAGE);
         call.enqueue(new Callback<ContainerPelicula>() {
             @Override
             public void onResponse(Call<ContainerPelicula> call, Response<ContainerPelicula> response) {

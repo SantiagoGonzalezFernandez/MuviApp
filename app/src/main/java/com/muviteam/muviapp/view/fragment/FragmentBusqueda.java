@@ -14,9 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.firebase.auth.FirebaseUser;
 import com.muviteam.muviapp.R;
-import com.muviteam.muviapp.controller.ControllerFirestore;
 import com.muviteam.muviapp.controller.ControllerPelicula;
 import com.muviteam.muviapp.model.Pelicula;
 import com.muviteam.muviapp.utils.ResultListener;
@@ -28,9 +26,9 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentLista extends Fragment implements AdapterPelicula.ListenerDelAdapter {
+public class FragmentBusqueda extends Fragment implements AdapterPelicula.ListenerDelAdapter {
 
-    public static final String VALORGENERO = "0";
+    public static final String BUSQUEDA = "consulta";
 
     private View view;
     private ControllerPelicula controllerPelicula;
@@ -38,20 +36,18 @@ public class FragmentLista extends Fragment implements AdapterPelicula.ListenerD
     private ItemTouchHelper itemTouchHelper;
     private AdapterPelicula adapterPelicula;
     private RecyclerView recyclerViewLista;
-    private Integer numeroGenero;
-    private String letraGenero;
+    private String consultaQuery;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_lista, container, false);
-        recyclerViewLista = view.findViewById(R.id.FragmentLista_MultiSnapRecyclerView_ListaDeMovie);
-        letraGenero = getArguments().getString(VALORGENERO);
-        numeroGenero = Integer.valueOf(letraGenero);
+        view = inflater.inflate(R.layout.fragment_busqueda, container, false);
+        recyclerViewLista = view.findViewById(R.id.FragmentBusqueda_MultiSnapRecyclerView_Lista);
+        consultaQuery = getArguments().getString(BUSQUEDA);
         controllerPelicula = new ControllerPelicula();
         adapterPelicula = new AdapterPelicula(this);
-        controllerPelicula.traerPeliculaPorGenero(numeroGenero, new ResultListener<List<Pelicula>>() {
+        controllerPelicula.traerPeliculasPorBusqueda(consultaQuery, new ResultListener<List<Pelicula>>() {
             @Override
             public void finish(List<Pelicula> result) {
                 adapterPelicula.setPeliculaList(result);
