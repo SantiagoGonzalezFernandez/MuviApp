@@ -14,6 +14,8 @@
   <item
         android:id="@+id/ToolBarMenu_Item_perfilUser"
         android:title="perfil"
+      android:icon="@drawable/ic_account_circle_black_24dp"
+      app:actionViewClass="android.widget.ImageView"
         app:showAsAction="ifRoom"
         android:orderInCategory="2"/>
 

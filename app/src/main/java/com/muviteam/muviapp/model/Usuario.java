@@ -13,9 +13,7 @@ public class Usuario {
         this.imagenUrl = imagenUrl;
     }
 
-    public String getImagenUrl() {
-        return imagenUrl;
-    }
+    public String getImagenUrl() {return imagenUrl;}
 
     public void setImagenUrl(String imagenUrl) {
         this.imagenUrl = imagenUrl;

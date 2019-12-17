@@ -15,9 +15,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +28,7 @@ import com.muviteam.muviapp.R;
 import com.muviteam.muviapp.controller.ControllerPelicula;
 import com.muviteam.muviapp.model.Famoso;
 import com.muviteam.muviapp.model.Pelicula;
+import com.muviteam.muviapp.model.Usuario;
 import com.muviteam.muviapp.utils.ResultListener;
 import com.muviteam.muviapp.view.adapter.AdapterFavorito;
 import com.muviteam.muviapp.view.fragment.FragmentBusqueda;
@@ -44,7 +47,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterPelicula.ListenerDelAdapter
         , FragmentHome.ListenerDeFragment, FragmentViewPager.ListenerDeFragment, FragmentDetallePelicula.ListenerDeFragment, FragmentGeneros.ListenerDeFragment,
-       FragmentLista.ListenerDeFragment, AdapterFamoso.ListenerDelAdapter, FragmentDetalleFamoso.ListenerDeFragment , AdapterFavorito.ListenerDelAdapter,
+        FragmentLista.ListenerDeFragment, AdapterFamoso.ListenerDelAdapter, FragmentDetalleFamoso.ListenerDeFragment, AdapterFavorito.ListenerDelAdapter,
         FragmentWatchlist.ListenerDeFragment, FragmentBusqueda.ListenerDeFragment {
 
     private Toolbar myToolbar;
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    private void configuroToolbar(){
+    private void configuroToolbar() {
         setSupportActionBar(myToolbar);
 
         ActionBarDrawerToggle myActionBarDrawerToggle =
@@ -121,8 +124,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         myMenuItemProfile.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == R.id.ToolBarMenu_Item_perfilUser) {
-                    Toast.makeText(getApplicationContext(), "Perfil", Toast.LENGTH_SHORT).show();
+                if (firebaseUser == null) {
+                    Toast.makeText(getApplicationContext(), "Por Favor Inicie Sesion!!!", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                } else {
+                    Toast.makeText(getApplicationContext(), "Ingresando a su Perfil", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getBaseContext(), AltaYPerfilUsuario.class));
                 }
                 return true;
             }
@@ -158,25 +165,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int intItemSeleccionadoId = menuItem.getItemId();
 
-        switch (intItemSeleccionadoId){
+        switch (intItemSeleccionadoId) {
             case R.id.MenuPrincipal_Item_Home:
                 Toast.makeText(this, "Home", Toast.LENGTH_LONG).show();
-                pegarFragment(new ToolbarFragment());
+                startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.MenuPrincipal_Item_Configuracion:
                 if (firebaseUser == null) {
                     Toast.makeText(this, "Por Favor Inicie Sesion!!!", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getBaseContext(), LoginActivity.class));
-                }else {
+                } else {
                     Toast.makeText(this, "Ingresando a su Perfil", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(getBaseContext(), AltaYPerfilUsuario.class));}
+                    startActivity(new Intent(getBaseContext(), AltaYPerfilUsuario.class));
+                }
                 break;
             case R.id.MenuPrincipal_Item_CerrarSesion:
                 Toast.makeText(this, "Cerrar sesion", Toast.LENGTH_LONG).show();
                 //Cierro la sesion de firebase y la de facebook y abro el LoginActivity
                 myLoginManager.logOut();
                 myFirebaseAuth.signOut();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class ));
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 finish();
                 break;
         }
@@ -192,6 +200,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .commit();
     }
 
+    private void recontraPegarFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.MainActivity_FrameLayout_ContenedorDeFragments, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
     @Override
     public void recibirPelicula(Pelicula pelicula) {
         Toast.makeText(this, pelicula.getTitulo(), Toast.LENGTH_SHORT).show();
@@ -201,7 +216,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragment_detallePelicula.setArguments(bundle);
         currentFragment = fragment_detallePelicula;
         pegarFragment(fragment_detallePelicula);
-
     }
 
     @Override
@@ -213,7 +227,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragment_detalleFamoso.setArguments(bundle);
         currentFragment = fragment_detalleFamoso;
         pegarFragment(fragment_detalleFamoso);
-
     }
 
 

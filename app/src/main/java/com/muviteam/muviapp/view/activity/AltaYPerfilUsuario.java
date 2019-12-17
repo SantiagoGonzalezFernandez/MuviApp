@@ -56,6 +56,8 @@ public class AltaYPerfilUsuario extends AppCompatActivity {
     private FirebaseStorage storage;
     private FirebaseFirestore firestore;
     private FirebaseUser currentUsuer;
+    private StorageReference path;
+    private Usuario usuarioImagen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,7 @@ public class AltaYPerfilUsuario extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         currentUsuer = FirebaseAuth.getInstance().getCurrentUser();
         firestore = FirebaseFirestore.getInstance();
+        path = storage.getReference().child("ProfiePics").child(currentUsuer.getUid());
         botonCargarImagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,7 +122,6 @@ public class AltaYPerfilUsuario extends AppCompatActivity {
     }
 
     private void cargarImagenAFirebase() {
-        StorageReference path = storage.getReference().child("ProfiePics").child(currentUsuer.getUid());
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         Bitmap bm=((BitmapDrawable)profilePic.getDrawable()).getBitmap();
         bm.compress(Bitmap.CompressFormat.JPEG,20,byteArrayOutputStream);
@@ -142,7 +144,6 @@ public class AltaYPerfilUsuario extends AppCompatActivity {
     }
 
     private void cargarImagenDelStorageAlDatabase() {
-        StorageReference path = storage.getReference().child("ProfiePics").child(currentUsuer.getUid());
         path.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -160,13 +161,13 @@ public class AltaYPerfilUsuario extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        Usuario usuario = documentSnapshot.toObject(Usuario.class);
-                        if (usuario != null) {
-                            editTextNombre.setHint(usuario.getNombre());
-                            editTextApellido.setHint(usuario.getApellido());
-                            if (usuario.getImagenUrl() != null) {
+                        usuarioImagen = documentSnapshot.toObject(Usuario.class);
+                        if (usuarioImagen != null) {
+                            editTextNombre.setHint(usuarioImagen.getNombre());
+                            editTextApellido.setHint(usuarioImagen.getApellido());
+                            if (usuarioImagen.getImagenUrl() != null) {
                                 Glide.with(AltaYPerfilUsuario.this)
-                                        .load(usuario.getImagenUrl())
+                                        .load(usuarioImagen.getImagenUrl())
                                         .into(profilePic);
                             }
                         }

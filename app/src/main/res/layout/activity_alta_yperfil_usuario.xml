@@ -39,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
+                android:textColorHint="@color/colorTexto"
                 android:textColor="@color/colorTexto"
                 android:backgroundTint="@color/colorPrimary"
                 android:hint="@string/nombre" />
@@ -55,6 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorTexto"
+                android:textColorHint="@color/colorTexto"
                 android:backgroundTint="@color/colorPrimary"
                 android:gravity="center_horizontal"
                 android:hint="@string/apellido"
